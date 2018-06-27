@@ -1,0 +1,14 @@
+.carousel-indicators {
+	position: relative;
+	bottom: 0;
+	margin: 0 auto;
+    li {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: rgba(theme-color('primary'), 0.5);
+        &.active {
+            background-color: theme-color('primary');
+        }
+    }
+}

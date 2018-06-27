@@ -1,8 +1,20 @@
-
-// Body
-$body-bg: #f5f8fa;
-
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$font-family-sans-serif: 'Lato', sans-serif;
+$font-family-base: $font-family-sans-serif;
+$header-height-small: 60px;
+$header-height: 60px;
+$section-padding: 100px;
+$spacers: map-merge((
+	gt: $grid-gutter-width,
+  	sp: ($section-padding/2)
+), $spacers);
+$enable-caret:              false;
+$enable-rounded:			false;
+$dropdown-link-hover-bg: lighten(theme-color('primary'), 47%);
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-bold:            700;
+$headings-font-weight: $font-weight-normal;
+$input-placeholder-color: $gray-500;
+// $input-padding-y: $input-btn-padding-x-lg;
+// $input-padding-x: $input-btn-padding-x-lg;

@@ -1,22 +1,42 @@
 {
     "private": true,
+    "name": "business",
+    "version": "1.0.0",
+    "description": "Furniture business",
+    "Author": "Parth Shah",
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "default": "gulp default",
+        "dev": "gulp dev",
+        "prod": "gulp prod",
+        "prod-all": "gulp prod-all"
     },
     "devDependencies": {
-        "axios": "^0.18",
-        "bootstrap": "^4.0.0",
-        "popper.js": "^1.12",
-        "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^2.0",
-        "lodash": "^4.17.4",
-        "vue": "^2.5.7"
+        "axios": "^0.18.0",
+        "bootstrap": "^4.1.1",
+        "browser-sync": "^2.24.4",
+        "cross-env": "^5.1.6",
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^5.0.0",
+        "gulp-favicons": "^2.2.7",
+        "gulp-imagemin": "^4.1.0",
+        "gulp-inject": "^4.3.2",
+        "gulp-plumber": "^1.2.0",
+        "gulp-real-favicon": "^0.3.0",
+        "gulp-rename": "^1.2.3",
+        "gulp-sass": "^4.0.1",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "imagemin-pngquant": "^5.1.0",
+        "jquery": "^3.3.1",
+        "laravel-mix": "^2.1.11",
+        "lodash": "^4.17.10",
+        "popper.js": "^1.14.3",
+        "pump": "^3.0.0",
+        "vue": "^2.5.16"
+    },
+    "dependencies": {
+        "owl.carousel": "^2.3.4"
     }
 }

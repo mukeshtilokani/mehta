@@ -1,0 +1,9 @@
+@mixin section-padding {
+	// @include media-breakpoint-up(lg) {
+	// 	padding: $section-padding 0;
+	// }
+	// @include media-breakpoint-down(lg) {
+	// 	padding: $section-padding/2 0;
+	// }
+	padding: $section-padding/2 0
+}
