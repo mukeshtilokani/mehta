@@ -1,0 +1,100 @@
+// .main-banner {
+//     position: relative;
+//     height: 100vh;
+//     >.container,
+//     >.container .row {
+//         height: 100%;
+//         .banner-logo {
+//             width: 150px;
+//             height: auto;
+//         }
+//     }
+//     .arrow {
+//         position: absolute;
+//         bottom: 0;
+//         right: 0;
+//         left: 0;
+//         width: 100%;
+//         text-align: center;
+//         a {
+//             color: $text-muted;
+//             display: block;
+//             width: 100%;
+//             text-decoration: none;
+//             margin-bottom: 50px;
+//             &:hover {
+//                 text-decoration: none;
+//             }
+//             .chevron-icon {
+//                 position: relative;
+//             }
+
+//             .chevron {
+//                 position: absolute;
+//                 width: 28px;
+//                 height: 8px;
+//                 opacity: 0;
+//                 transform: scale3d(0.5, 0.5, 0.5);
+//                 animation: move 3s ease-out infinite;
+//             }
+
+//             .chevron:first-child {
+//                 animation: move 3s ease-out 1s infinite;
+//             }
+
+//             .chevron:nth-child(2) {
+//                 animation: move 3s ease-out 2s infinite;
+//             }
+
+//             .chevron:before,
+//             .chevron:after {
+//                 content: ' ';
+//                 position: absolute;
+//                 top: 0;
+//                 height: 100%;
+//                 width: 51%;
+//                 background: rgba($black, 0.3);
+//             }
+
+//             .chevron:before {
+//                 left: 0;
+//                 transform: skew(0deg, 30deg);
+//             }
+
+//             .chevron:after {
+//                 right: 0;
+//                 width: 50%;
+//                 transform: skew(0deg, -30deg);
+//             }
+
+//             .text {
+//                 display: block;
+//                 margin-top: 75px;
+//                 text-align: center;
+//                 font-size: 12px;
+//                 text-transform: uppercase;
+//                 white-space: nowrap;
+//                 opacity: .55;
+//                 animation: pulse 2s linear alternate infinite;
+//             }
+
+//             @keyframes move {
+//                 25% {
+//                     opacity: 1;
+//                 }
+//                 33% {
+//                     opacity: 1;
+//                     transform: translateY(30px);
+//                 }
+//                 67% {
+//                     opacity: 1;
+//                     transform: translateY(40px);
+//                 }
+//                 100% {
+//                     opacity: 0;
+//                     transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+//                 }
+//             }
+//         }
+//     }
+// }

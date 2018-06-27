@@ -1,0 +1,19 @@
+.footer {
+    @include section-padding;
+    color: $white;
+    a {
+        color: $white;
+        font-weight: 300;
+        &:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+    }
+    p,
+    address {
+        font-weight: 300;
+    }
+    sup.service-trademark {
+        top: -0.5rem;
+    }
+}

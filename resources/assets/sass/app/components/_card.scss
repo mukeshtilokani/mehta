@@ -1,0 +1,45 @@
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: $card-bg;
+	background-clip: border-box;
+	> hr {
+	    margin-right: 0;
+	    margin-left: 0;
+	}
+
+	.card-body {
+		flex: 1 1 auto;
+		padding: $grid-gutter-width/2;
+		&.full-padding {
+			padding: $grid-gutter-width;
+		}
+		p {
+			&:first-child,
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&.card-shadow {
+		box-shadow: $box-shadow;
+		transition: all .25s ease-in-out;
+		&:hover {
+			box-shadow: $box-shadow-sm;
+		}
+	}
+
+	&.transparent {
+		background: transparent;
+	}
+}
+
+// Card image caps
+.card-img-top {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  // @include border-top-radius($card-inner-border-radius);
+}

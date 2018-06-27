@@ -1,0 +1,272 @@
+.cd-auto-hide-header {
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $header-height-small;
+	background-color: $white;
+	box-shadow: $box-shadow-sm;
+	@include clearfix;
+	/* Force Hardware Acceleration */
+	transform: translateZ(0);
+	will-change: transform;
+	transition: transform .5s;
+	display: flex;
+	flex-wrap: wrap; // allow us to do the line break for collapsing content
+	align-items: center;
+	justify-content: space-between; // space out brand from logo
+
+	// Because flex properties aren't inherited, we need to redeclare these first
+	// few properities so that content nested within behave properly.
+	> .container,
+	> .container-fluid {
+	    display: flex;
+	    flex-wrap: wrap;
+	    align-items: center;
+	    justify-content: space-between;
+	    @include media-breakpoint-up(lg) {
+			height: $header-height;
+		}
+	}
+
+	&.is-hidden {
+		transform: translateY(-100%);
+	}
+
+	@include media-breakpoint-up(lg) {
+		height: $header-height;
+	}
+}
+
+.cd-auto-hide-header .logo, 
+.cd-auto-hide-header .nav-trigger {
+	// position: absolute;
+	// @include center(y);
+}
+
+.cd-auto-hide-header .logo {
+	// left: 5%;
+
+	a, img {
+		display: block;
+	}
+	img {
+		height: 50px;
+	}
+}
+
+.cd-auto-hide-header .nav-trigger {
+	/* vertically align its content */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+	// height: 100%;
+	// padding: 0 1em;
+	// font-size: 1.2rem;
+	// text-transform: uppercase;
+	color: $body-color;
+	// font-weight: bold;
+	// right: 0;
+	// border-left: 1px solid shade($white, 5%);
+
+	span {
+		/* vertically align inside parent element */
+		// display: table-cell;
+		// vertical-align: middle;
+		display: flex;
+		align-items: center;
+	}
+
+	em, em::after, em::before {
+		/* this is the menu icon */
+		display: block;
+		position: relative;
+		height: 2px;
+		width: 22px;
+		background-color: $body-color;
+		backface-visibility: hidden;
+	}
+
+	em {
+		/* this is the menu central line */
+		// margin: 6px auto 14px;
+		margin: 6px auto 6px;
+		transition: background-color .2s;
+	}
+
+	em::before, em::after {
+		position: absolute;
+		content: '';
+		left: 0;
+		transition: transform .2s;
+	}
+
+	em::before {
+		/* this is the menu icon top line */
+		transform: translateY(-6px);
+	}
+
+	em::after {
+		/* this is the menu icon bottom line */
+		transform: translateY(6px);
+	}
+
+	@include media-breakpoint-up(lg) {
+		display: none;
+	}
+}
+
+.cd-auto-hide-header.nav-open .nav-trigger {
+	em {
+		/* transform menu icon into a 'X' icon */
+		background-color: rgba($white, 0);
+	}
+
+	em::before {
+		/* rotate top line */
+		transform: rotate(-45deg);
+	}
+
+	em::after {
+		/* rotate bottom line */
+		transform: rotate(45deg);
+	}
+}
+
+.cd-primary-nav {
+	// display: inline-block;
+	// float: right;
+	// height: 100%;
+	// padding-right: 5%;
+	display: flex;
+
+	> ul {
+		position: absolute;
+		z-index: 2;
+		top: $header-height-small;
+		left: 0;
+		width: 100%;
+		background-color: $white;
+		display: none;
+		list-style-type: none;
+    	padding-left: 0px;
+
+    	li {
+    		@include make-container-max-widths;
+    		margin: 0 auto;
+
+    		> a {
+				/* target primary-nav links */
+				display: block;
+				line-height: 50px;
+				padding-right: ($grid-gutter-width / 2);
+	            padding-left: ($grid-gutter-width / 2);
+				color: $body-color;
+				border-top: 1px solid shade($white, 5%);
+				text-decoration: none;
+				clear: both;
+				&:hover, &.active {
+					color: $link-color;
+				}
+			}
+			> .dropdown-menu {
+				&.show {
+					@include media-breakpoint-down(lg) {
+						width: 100%;
+						position: relative !important;
+						transform: initial !important;
+						border: 0;
+					    border-radius: 0;
+					    a {
+					    	&:before {
+					    		content: '- ';
+					    	}
+					    }
+					}
+				}
+			}
+    	}
+	}
+
+	@include media-breakpoint-up(lg) {
+		/* vertically align its content */
+		// display: table;
+
+		> ul {
+			/* vertically align inside parent element */
+			display: flex;
+			// vertical-align: middle;
+			/* reset mobile style */
+			position: relative;
+			width: auto;
+			top: 0;
+			padding: 0;
+			@include clearfix;
+			background-color: transparent;
+			box-shadow: none;
+			margin: 0;
+
+			li {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+
+				&.dropdown {
+                    &:hover {
+                        .dropdown-menu {
+                            display: block;
+                        }
+                    }
+                }
+                
+				> a {
+					/* reset mobile style */
+					height: $header-height-small;
+					line-height: normal;
+					display: flex;
+	    			align-items: center;
+					padding-right: $navbar-nav-link-padding-x;
+	            	padding-left: $navbar-nav-link-padding-x;
+					border: none;
+					text-decoration: none;
+				}
+				> .dropdown-menu {
+					margin-top: 0;
+					border: 0;
+					border-radius: 0;
+					@include box-shadow;
+				}
+			}
+		}
+	}
+}
+
+.nav-open .cd-primary-nav ul, 
+.cd-primary-nav ul:target {
+	/* 
+		show primary nav - mobile only 
+		:target is used to show navigation on no-js devices
+	*/
+	display: block;
+
+	@include media-breakpoint-up(lg) {
+		display: table-cell;
+	}
+}
+
+/* -------------------------------- 
+
+Main content
+
+-------------------------------- */
+
+.cd-main-content {
+	padding-top: $header-height;
+	overflow: hidden;
+}

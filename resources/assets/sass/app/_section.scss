@@ -1,0 +1,43 @@
+section {
+	@include section-padding;
+	.section-title {
+		&:after {
+			content: '';
+		    width: 90px;
+		    height: 5px;
+		    background: theme-color('primary');
+		    display: inline-block;
+		    margin: 0 auto;
+		}
+		&.text-white {
+			&:after {
+				background: $white;
+			}
+		}
+	}
+}
+
+.section-block {
+	position: relative;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-clip: border-box;
+    background-size: cover;
+    .section-banner {
+    	top: 0;
+	    bottom: 0;
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    background: rgba(theme-color('primary'),.8);
+	    z-index: 1;
+    }
+    .section-overlay {
+    	z-index: 2;
+    	position: relative;
+    }
+}
+
+.service-logo {
+	width: 80px;
+}
