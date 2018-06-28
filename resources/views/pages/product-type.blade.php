@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('pageTitle', 'Products')
+@section('pageTitle', 'Product Type')
 @section('plugins-style')
 @endsection
 @section('page-style')
@@ -13,8 +13,14 @@
 		<div class="container">
 			<div class="row align-items-center h-100">
 				<div class="col-12">
-					<h1 class="hero-text font-weight-light">Our</h1>
-					<h1 class="hero-text font-weight-bold">Products</h1>
+					<h1 class="hero-text font-weight-light">Plywood</h1>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/products">All Products</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Plywoods</li>
+						</ol>
+					</nav>
+
 				</div>
 			</div>
 		</div>
@@ -28,73 +34,73 @@
 		<div class="row mt-gt">
 			<div class="col-md-6 col-lg-4">
 				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=101" alt=""/>
+					<img src="https://picsum.photos/400/400?image=401" alt=""/>
 					<figcaption>
 						<div>
 							<h2>Title</h2>
 							<p>Lily likes to play with crayons and pencils</p>
 						</div>
-						<a href="/product-type">View more</a>
+						<a href="/product">View more</a>
 					</figcaption>			
 				</figure>
 			</div>
 			<div class="col-md-6 col-lg-4">
 				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=102" alt=""/>
+					<img src="https://picsum.photos/400/400?image=402" alt=""/>
 					<figcaption>
 						<div>
 							<h2>Title</h2>
 							<p>Lily likes to play with crayons and pencils</p>
 						</div>
-						<a href="/product-type">View more</a>
+						<a href="/product">View more</a>
 					</figcaption>			
 				</figure>
 			</div>
 			<div class="col-md-6 col-lg-4">
 				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=103" alt=""/>
+					<img src="https://picsum.photos/400/400?image=403" alt=""/>
 					<figcaption>
 						<div>
 							<h2>Title</h2>
 							<p>Lily likes to play with crayons and pencils</p>
 						</div>
-						<a href="/product-type">View more</a>
+						<a href="/product">View more</a>
 					</figcaption>			
 				</figure>
 			</div>
 			<div class="col-md-6 col-lg-4">
 				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=104" alt=""/>
+					<img src="https://picsum.photos/400/400?image=404" alt=""/>
 					<figcaption>
 						<div>
 							<h2>Title</h2>
 							<p>Lily likes to play with crayons and pencils</p>
 						</div>
-						<a href="/product-type">View more</a>
+						<a href="/product">View more</a>
 					</figcaption>			
 				</figure>
 			</div>
 			<div class="col-md-6 col-lg-4">
 				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=106" alt=""/>
+					<img src="https://picsum.photos/400/400?image=406" alt=""/>
 					<figcaption>
 						<div>
 							<h2>Title</h2>
 							<p>Lily likes to play with crayons and pencils</p>
 						</div>
-						<a href="/product-type">View more</a>
+						<a href="/product">View more</a>
 					</figcaption>			
 				</figure>
 			</div>
 			<div class="col-md-6 col-lg-4">
 				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=107" alt=""/>
+					<img src="https://picsum.photos/400/400?image=407" alt=""/>
 					<figcaption>
 						<div>
 							<h2>Title</h2>
 							<p>Lily likes to play with crayons and pencils</p>
 						</div>
-						<a href="/product-type">View more</a>
+						<a href="/product">View more</a>
 					</figcaption>			
 				</figure>
 			</div>

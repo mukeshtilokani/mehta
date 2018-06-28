@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('pageTitle', 'product')
+@section('pageTitle', 'Product')
 @section('plugins-style')
 @endsection
 @section('page-style')
@@ -11,7 +11,16 @@
 	<div class="container">
 		<div class="row mb-gt">
 			<div class="col-12">
-				<h3>Name of the product</h3>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/products">All Products</a></li>
+					<li class="breadcrumb-item"><a href="/plywoods">Plywoods</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Dummy Plywood</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row mb-gt">
+			<div class="col-12">
+				<h3>Dummy Plywood</h3>
 			</div>
 		</div>
 		<div class="row">

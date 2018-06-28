@@ -23,6 +23,9 @@ Route::get('about', function () {
 Route::get('product', function () {
     return view('pages.product');
 });
+Route::get('product-type', function () {
+    return view('pages.product-type');
+});
 Route::get('contact', function () {
     return view('pages.contact');
 });
