@@ -12,23 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+    return view('pages.frontend.home');
 });
 Route::get('products', function () {
-    return view('pages.products');
+    return view('pages.frontend.products');
 });
 Route::get('about', function () {
-    return view('pages.about');
+    return view('pages.frontend.about');
 });
 Route::get('product', function () {
-    return view('pages.product');
+    return view('pages.frontend.product');
 });
 Route::get('product-type', function () {
-    return view('pages.product-type');
+    return view('pages.frontend.product-type');
 });
 Route::get('contact', function () {
-    return view('pages.contact');
+    return view('pages.frontend.contact');
 });
 Route::get('terms', function () {
-    return view('pages.terms');
+    return view('pages.frontend.terms');
 });

@@ -49,7 +49,7 @@ var paths = {
 
 // For Development
 gulp.task('sass', function() {
-    gulp.src(paths.sass + '/app.scss')
+    gulp.src(paths.sass + '/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
@@ -216,7 +216,7 @@ gulp.task('favicon-generate', ['clean'], function() {
  * Requires the `favicon-generate` task to run first.
  */
 gulp.task('inject-favicon', ['favicon-generate'], function() {
-    gulp.src(GlobalPaths.Views + 'includes/partials/favicon.blade.php')
+    gulp.src(GlobalPaths.Views + 'includes/frontend/partials/favicon.blade.php')
         .pipe(inject(gulp.src([paths.images + '/favicon.html']), {
             starttag: '<!-- inject:head:{{ext}} -->',
             transform: function(filePath, file) {
@@ -224,7 +224,7 @@ gulp.task('inject-favicon', ['favicon-generate'], function() {
                 // return file contents as string
             }
         }))
-        .pipe(gulp.dest(GlobalPaths.Views + 'includes/partials'));
+        .pipe(gulp.dest(GlobalPaths.Views + 'includes/frontend/partials'));
 });
 
 /**
