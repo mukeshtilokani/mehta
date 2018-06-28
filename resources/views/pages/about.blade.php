@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('pageTitle', 'Home')
+@section('pageTitle', 'About us')
 @section('plugins-style')
 @endsection
 @section('page-style')

@@ -1,5 +1,5 @@
 <head>
-    <title>@yield('pageTitle') || Dummmy</title>
+    <title>@yield('pageTitle') || Mehta Plywoods</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name='description' content='A Description for your company website'>

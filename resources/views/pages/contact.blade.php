@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('pageTitle', 'product')
+@section('pageTitle', 'Contact us')
 @section('plugins-style')
 @endsection
 @section('page-style')

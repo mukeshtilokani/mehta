@@ -21,10 +21,10 @@
 					<a class="dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/products">All Products</a>
-						<a class="dropdown-item" href="/product">Product 1</a>
-						<a class="dropdown-item" href="/product">Product 2</a>
-						<a class="dropdown-item" href="/product">Product 3</a>
-						<a class="dropdown-item" href="/product">Product 4</a>
+						<a class="dropdown-item" href="/product-type">Product 1</a>
+						<a class="dropdown-item" href="/product-type">Product 2</a>
+						<a class="dropdown-item" href="/product-type">Product 3</a>
+						<a class="dropdown-item" href="/product-type">Product 4</a>
 						{{-- <a class="dropdown-item" href="/messagemastr">messagemastr</a> --}}
 					</div>
 				</li>
