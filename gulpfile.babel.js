@@ -104,7 +104,8 @@ const files = {
                 path.src.jscore + 'jquery.appear.min.js',
                 path.src.jscore + 'jquery.countTo.min.js',
                 path.src.jscore + 'js.cookie.min.js',
-                path.src.js + 'codebase.js'
+                path.src.js + 'codebase.js',
+                path.src.js + 'custom.js'
             ],
             // JS Pages files
             pages: [
@@ -116,7 +117,9 @@ const files = {
         // Files to be copied over on build task
         copy: [
             path.src.css + '**/*.min.css',
+            path.src.jscore + '**/*.*',
             path.src.jsplugins + '**/*.*',
+            path.src.jspages + '**/*.*',
             path.src.fonts + '**/*.*',
             path.src.media + 'avatars/**/*.*',
             path.src.media + 'favicons/**/*.*'
