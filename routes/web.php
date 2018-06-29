@@ -32,3 +32,12 @@ Route::get('contact', function () {
 Route::get('terms', function () {
     return view('pages.frontend.terms');
 });
+Route::get('login', function () {
+    return view('auth.login');
+});
+Route::get('forgot-password', function () {
+    return view('auth.forgot-password');
+});
+Route::get('admin', function () {
+    return view('pages.backend.index');
+});

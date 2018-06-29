@@ -1,7 +1,6 @@
 /*
  *  Document   : codebase.js
- *  Author     : pixelcave
- *  Description: Codebase - UI Framework Custom Functionality
+ *  Author     : pixelperfection
  *
  */
 
