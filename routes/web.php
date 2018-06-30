@@ -26,6 +26,9 @@ Route::get('product', function () {
 Route::get('product-type', function () {
     return view('pages.frontend.product-type');
 });
+Route::get('gallery', function () {
+    return view('pages.frontend.gallery');
+});
 Route::get('contact', function () {
     return view('pages.frontend.contact');
 });

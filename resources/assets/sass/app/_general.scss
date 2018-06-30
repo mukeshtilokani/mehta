@@ -23,6 +23,13 @@ img {
     user-drag: none;
 }
 
+.clients {
+    img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
 .modal#Video {
 	.close {
 		text-shadow: none;
