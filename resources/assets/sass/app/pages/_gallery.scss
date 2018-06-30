@@ -1,0 +1,11 @@
+.gallery {
+	[data-gallery] {
+		img {
+			transition: box-shadow 0.25s ease-in-out;
+			box-shadow: 0 0 10px rgba($black, 0);
+			&:hover {
+				box-shadow: 0 0 50px rgba($black, 0.35);
+			}
+		}
+	}
+}

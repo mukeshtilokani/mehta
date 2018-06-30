@@ -28,9 +28,9 @@
 						{{-- <a class="dropdown-item" href="/messagemastr">messagemastr</a> --}}
 					</div>
 				</li>
-				{{-- <li>
-					<a href="/case-studies">Case studies</a>
-				</li> --}}
+				<li>
+					<a href="/gallery">Gallery</a>
+				</li>
 				<li>
 					<a href="/contact">Contact us</a>
 				</li>

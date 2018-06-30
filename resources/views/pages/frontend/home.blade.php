@@ -90,6 +90,10 @@
 </section>
 {{-- End of section 2 --}}
 
+{{-- clients --}}
+@include('includes.frontend.clients')
+{{-- End of clients --}}
+
 {{-- testimonial --}}
 @include('includes.frontend.testimonial')
 {{-- End of testimonial --}}
