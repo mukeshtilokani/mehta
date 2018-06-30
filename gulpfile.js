@@ -8,14 +8,14 @@ var del = require('del');
 var favicons = require('gulp-favicons');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var imagemin = require("gulp-imagemin");
+var imagemin = require('gulp-imagemin');
 var inject = require('gulp-inject');
 var plumber = require('gulp-plumber');
 var pngquant = require('imagemin-pngquant');
 var prefix = require('gulp-autoprefixer');
 var pump = require('pump');
 // var realFavicon = require('gulp-real-favicon');
-var rename = require("gulp-rename");
+var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
@@ -48,7 +48,7 @@ var paths = {
  **/
 
 // For Development
-gulp.task('sass', function() {
+gulp.task('sass', function(done) {
     gulp.src(paths.sass + '/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(plumber())
@@ -56,25 +56,28 @@ gulp.task('sass', function() {
         .pipe(prefix('last 40 versions', '> 1%', 'ie 8', 'Android 2', 'Firefox ESR'))
         .pipe(plumber.stop())
         .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest(paths.buildCss));
+        .pipe(gulp.dest(paths.buildCss))
+        done();
 });
 
 /**
  * Remove the generated map files.
  */
-gulp.task('clean-maps', function() {
-    return del(GlobalPaths.Public + 'maps');
+gulp.task('clean-maps', function(done) {
+    return del(GlobalPaths.Public + 'maps')
+    done();
 });
 
 // For Production
-gulp.task('sass-pro', ['clean-maps'], function() {
+gulp.task('sass-pro', gulp.series('clean-maps', function(done) {
     gulp.src(paths.sass + '/**/*.scss')
         .pipe(plumber())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(prefix('last 40 versions', '> 1%', 'ie 8', 'Android 2', 'Firefox ESR'))
         .pipe(plumber.stop())
-        .pipe(gulp.dest(paths.buildCss));
-});
+        .pipe(gulp.dest(paths.buildCss))
+        done();
+}));
 
 /**
  *
@@ -87,9 +90,10 @@ gulp.task('sass-pro', ['clean-maps'], function() {
  * This file will contain all rules needed for your project.
  *
  **/
-gulp.task('scsslint', function() {
+gulp.task('scsslint', function(done) {
     return gulp.src(paths.sass + '/**/*.scss')
-        .pipe(scsslint());
+        .pipe(scsslint())
+        done();
 });
 
 /**
@@ -99,7 +103,7 @@ gulp.task('scsslint', function() {
  * - View project at: localhost:3000
  *
  **/
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function(done) {
     browserSync.init([
         paths.sass + '/**/*.scss',
         paths.js + '/**/*.js',
@@ -114,7 +118,8 @@ gulp.task('browser-sync', function() {
             scroll: false
         },
         notify: false
-    });
+    })
+    done();
 });
 
 
@@ -124,7 +129,7 @@ gulp.task('browser-sync', function() {
  * - Uglify
  *
  **/
-gulp.task('scripts', function() {
+gulp.task('scripts', function(done) {
     gulp.src(paths.js + '/**/*.js')
         .pipe(uglify())
         .pipe(rename({
@@ -132,9 +137,10 @@ gulp.task('scripts', function() {
             suffix: ".min",
         }))
         .pipe(gulp.dest(paths.buildJs))
+        done();
 });
 
-gulp.task('compress', function(cb) {
+gulp.task('compress', function(done) {
     pump([
             gulp.src(paths.js + '/**/*.js'),
             uglify(),
@@ -143,9 +149,9 @@ gulp.task('compress', function(cb) {
                 suffix: ".min",
             }),
             gulp.dest(paths.buildJs)
-        ],
-        cb
-    );
+        ]
+    )
+    done();
 });
 
 /**
@@ -154,14 +160,15 @@ gulp.task('compress', function(cb) {
  * - Compress them!
  *
  **/
-gulp.task('images', function() {
+gulp.task('images', function(done) {
     return gulp.src(paths.images + '/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{ removeViewBox: false }],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(paths.images));
+        .pipe(gulp.dest(paths.images))
+        done();
 });
 
 var config = {
@@ -178,8 +185,9 @@ var config = {
 /**
  * Remove the generated favicon files.
  */
-gulp.task('clean', function() {
-    return del([config.path]);
+gulp.task('clean', function(done) {
+    return del([config.path])
+    done();
 });
 
 /**
@@ -188,7 +196,7 @@ gulp.task('clean', function() {
  * For creating a Material Design icon, I recommend using
  * https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
  */
-gulp.task('favicon-generate', ['clean'], function() {
+gulp.task('favicon-generate', gulp.series('clean', function(done) {
     return gulp.src(paths.images + '/logos/favicon.png').pipe(favicons({
             appName: config.appName,
             appDescription: config.appDescription,
@@ -208,14 +216,15 @@ gulp.task('favicon-generate', ['clean'], function() {
             replace: true
         }))
         .on('error', gutil.log)
-        .pipe(gulp.dest(config.path));
-});
+        .pipe(gulp.dest(config.path))
+        done();
+}));
 
 /**
  * Inject the generated `favicon.html` into `index.html`.
  * Requires the `favicon-generate` task to run first.
  */
-gulp.task('inject-favicon', ['favicon-generate'], function() {
+gulp.task('inject-favicon', gulp.series('favicon-generate', function(done) {
     gulp.src(GlobalPaths.Views + 'includes/frontend/partials/favicon.blade.php')
         .pipe(inject(gulp.src([paths.images + '/favicon.html']), {
             starttag: '<!-- inject:head:{{ext}} -->',
@@ -224,16 +233,18 @@ gulp.task('inject-favicon', ['favicon-generate'], function() {
                 // return file contents as string
             }
         }))
-        .pipe(gulp.dest(GlobalPaths.Views + 'includes/frontend/partials'));
-});
+        .pipe(gulp.dest(GlobalPaths.Views + 'includes/frontend/partials'))
+        done();
+}));
 
 /**
  * Remove the generated favicon.html file.
  * Requires the `inject-favicon` task to run first.
  */
-gulp.task('clean-favicon', ['inject-favicon'], function() {
+gulp.task('clean-favicon', gulp.series('inject-favicon', function(done) {
     return del([paths.images + '/favicon.html']);
-});
+    done();
+}));
 
 
 
@@ -244,10 +255,11 @@ gulp.task('clean-favicon', ['inject-favicon'], function() {
  * - Watchs for file changes for compress and sass/css
  *
  **/
-gulp.task('dev', ['sass', 'compress'], function() {
-    gulp.watch(paths.sass + '/**/*.scss', ['sass']);
-    gulp.watch(paths.js + '/**/*.js', ['compress']);
-});
+gulp.task('dev', gulp.series(['sass', 'compress'], function(done) {
+    gulp.watch(paths.sass + '/**/*.scss', gulp.series('sass'));
+    gulp.watch(paths.js + '/**/*.js', gulp.series('compress'));
+    done();
+}));
 
 /**
  *
@@ -256,8 +268,9 @@ gulp.task('dev', ['sass', 'compress'], function() {
  * - Watchs for file changes for compress and sass/css
  *
  **/
-gulp.task('default', ['dev', 'browser-sync'], function() {
-});
+gulp.task('default', gulp.series(['dev', 'browser-sync'], function(done) {
+    done();
+}));
 
 /**
  *
@@ -266,7 +279,9 @@ gulp.task('default', ['dev', 'browser-sync'], function() {
  * - Watchs for file changes for images, compress and sass/css
  *
  **/
-gulp.task('prod', ['sass-pro', 'compress'], function() {});
+gulp.task('prod', gulp.series(['sass-pro', 'compress'], function(done) {
+    done();
+}));
 
 /**
  *
@@ -275,4 +290,6 @@ gulp.task('prod', ['sass-pro', 'compress'], function() {});
  * - Watchs for file changes for images, compress and sass/css
  *
  **/
-gulp.task('prod-all', ['sass-pro', 'compress', 'images'], function() {});
+gulp.task('prod-all', gulp.series(['sass-pro', 'compress', 'images'], function(done) {
+    done();
+}));
