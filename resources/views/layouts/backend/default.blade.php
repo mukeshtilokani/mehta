@@ -22,7 +22,7 @@
                 <!-- Page Content -->
                 <div class="content">
                     {{-- Breadcrimb --}}
-                        @include('includes.backend.breadcrumb')
+                       {{--  @include('includes.backend.breadcrumb') --}}
                     {{-- End of Breadcrumb --}}
 
                     {{-- Content --}}
