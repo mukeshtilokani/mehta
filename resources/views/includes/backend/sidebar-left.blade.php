@@ -27,7 +27,7 @@
 
                     <!-- Logo -->
                     <div class="content-header-item">
-                        <a class="link-effect font-w700" href="index.html">
+                        <a class="link-effect font-w700" href="/admin">
                             <span class="font-size-xl text-dual-primary-dark">Mehta</span> <span class="font-size-xl text-primary">Plywood</span>
                         </a>
                     </div>
@@ -41,11 +41,14 @@
             <div class="content-side content-side-full">
                 <ul class="nav-main">
                     <li>
-                        <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                        <a href="/"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                     </li>
                     <li class="nav-main-heading"><span class="sidebar-mini-visible">PC</span><span class="sidebar-mini-hidden">Product Category</span></li>
                     <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Category</span></a>
+                        <a href="/"><i class="si si-home"></i><span class="sidebar-mini-hide">Home</span></a>
+                    </li>
+                                        <li>
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-grid"></i><span class="sidebar-mini-hide">Category</span></a>
                         <ul>
                             <li>
                                 <a href="#">Category 1</a>
@@ -71,6 +74,9 @@
                                 <a href="#">Category 5</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="/"><i class="si si-layers"></i><span class="sidebar-mini-hide">Products</span></a>
                     </li>
                 </ul>
             </div>
