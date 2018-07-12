@@ -56,4 +56,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/categories/{market}', 'CategoriesController@update')->name('admin.categories.update');
     Route::get('/categories/{market}/edit', 'CategoriesController@edit')->name('admin.categories.edit');
 
+    // product routes
+    Route::resource('products', 'ProductController');
 });
