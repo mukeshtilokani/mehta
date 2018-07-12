@@ -43,37 +43,8 @@
                     <li>
                         <a href="/"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                     </li>
-                    <li class="nav-main-heading"><span class="sidebar-mini-visible">PC</span><span class="sidebar-mini-hidden">Product Category</span></li>
                     <li>
-                        <a href="/"><i class="si si-home"></i><span class="sidebar-mini-hide">Home</span></a>
-                    </li>
-                                        <li>
-                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-grid"></i><span class="sidebar-mini-hide">Category</span></a>
-                        <ul>
-                            <li>
-                                <a href="#">Category 1</a>
-                            </li>
-                            <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#">Category 2</a>
-                                <ul>
-                                    <li>
-                                        <a href="#">Sub category 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Sub category 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Category 3</a>
-                            </li>
-                            <li>
-                                <a href="#">Category 4</a>
-                            </li>
-                            <li>
-                                <a href="#">Category 5</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('admin.categories.index') }}"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Category</span></a>
                     </li>
                     <li>
                         <a href="/"><i class="si si-layers"></i><span class="sidebar-mini-hide">Products</span></a>
