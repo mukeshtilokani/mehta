@@ -27,7 +27,7 @@
 
                     <!-- Logo -->
                     <div class="content-header-item">
-                        <a class="link-effect font-w700" href="index.html">
+                        <a class="link-effect font-w700" href="/admin">
                             <span class="font-size-xl text-dual-primary-dark">Mehta</span> <span class="font-size-xl text-primary">Plywood</span>
                         </a>
                     </div>
@@ -41,10 +41,13 @@
             <div class="content-side content-side-full">
                 <ul class="nav-main">
                     <li>
-                        <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                        <a href="/"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                     </li>
                     <li>
                         <a href="{{ route('admin.categories.index') }}"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Category</span></a>
+                    </li>
+                    <li>
+                        <a href="/"><i class="si si-layers"></i><span class="sidebar-mini-hide">Products</span></a>
                     </li>
                 </ul>
             </div>
