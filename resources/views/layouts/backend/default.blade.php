@@ -42,6 +42,7 @@
         @yield('modal')
         <!-- Backend Core JS -->
         @include('includes.backend.partials.common-scripts')
+        @include('includes.backend.partials.delete_modal')
         @yield('plugins-scripts')
         @yield('page-scripts')
     </body>
