@@ -36,7 +36,9 @@ class CategoriesController extends Controller
      */
     public function create(Request $request)
     {
-        return view('pages.backend.categories.create', compact('categories'));
+        $parentCategories = Category::pluck('name', 'id');
+
+        return view('pages.backend.categories.create', compact('parentCategories'));
     }
 
     /**
@@ -45,9 +47,16 @@ class CategoriesController extends Controller
      * @param StoreRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        
+        $category = new Category();
+        $category->name = $request->name;
+        $category->parent_id = $request->parent;
+        $category->description = $request->description;
+        $category->save();
+
+        flash()->success('Category added successfully.');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -58,9 +67,12 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      * @internal param int $id
      */
-    public function edit(EditRequest $request, Category $category)
+    public function edit($id)
     {
-        
+        $category = Category::find($id);
+        $parentCategories = Category::pluck('name', 'id');
+
+        return view('pages.backend.categories.edit', compact('parentCategories', 'category'));
     }
 
     /**
@@ -71,9 +83,16 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      * @internal param int $id
      */
-    public function update(UpdateRequest $request, Category $category)
+    public function update(Request $request, $id)
     {
-        
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->parent_id = $request->parent;
+        $category->description = $request->description;
+        $category->save();
+
+        flash()->success('Category updated successfully.');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -84,6 +103,13 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        
+        $category = Category::find($id);
+
+        if($category->delete()) {
+            flash()->success('Category deleted successfully');
+        }else {
+            flash()->error(config('Data could not be deleted at this moment. Please try later.'));
+        }
+        return redirect()->route('admin.categories.index');
     }
 }
