@@ -161,10 +161,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-<<<<<<< HEAD
-=======
-
->>>>>>> beb93b91a716f0b29270ef9764aa6a54d7351deb
 
     ],
 
