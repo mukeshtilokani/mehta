@@ -47,7 +47,7 @@
                         <a href="{{ route('admin.categories.index') }}"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Category</span></a>
                     </li>
                     <li>
-                        <a href="/"><i class="si si-layers"></i><span class="sidebar-mini-hide">Products</span></a>
+                        <a href="{{ route('products.index') }}"><i class="si si-layers"></i><span class="sidebar-mini-hide">Products</span></a>
                     </li>
                 </ul>
             </div>
