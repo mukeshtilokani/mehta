@@ -8,13 +8,13 @@
 @endsection
 
 @section('content')
-	<h2 class="content-heading">Edit Category</h2>
+	<h2 class="content-heading">Edit Gallery</h2>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="block">
 				<div class="block-content">
-					{!! Form::open(['route' => ['admin.categories.update', $category->id], 'method' => 'PUT', 'class' => 'js-frm-edit-category', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
-	    				@include('includes.backend.forms.category.form',['from'=>'edit'])
+					{!! Form::open(['route' => ['admin.galleries.update', $gallery->id], 'method' => 'PUT', 'class' => 'js-frm-edit-gallery', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+	    				@include('includes.backend.forms.gallery.form',['from'=>'edit'])
 					{{ Form::close() }}
 				</div>
 			</div>
@@ -29,5 +29,5 @@
 @endsection
 
 @section('page-scripts')
-	<script type="text/javascript" src="{{ asset('backend/assets/js/category.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('backend/assets/js/gallery.js') }}"></script>
 @endsection
