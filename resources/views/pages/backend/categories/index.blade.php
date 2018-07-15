@@ -11,7 +11,7 @@
 @section('content')
 	<div class="block">
 		<div class="block-header block-header-default">
-			<h3 class="block-title">Products</h3>
+			<h3 class="block-title">Categories</h3>
 			<a class="btn sbold green" href="{{ route('admin.categories.create') }}"> Add New
                 <i class="fa fa-plus"></i>
             </a>
