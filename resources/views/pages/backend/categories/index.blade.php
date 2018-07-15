@@ -29,7 +29,7 @@
 					@foreach($categories as $category)
 					<tr>
 						<td class="font-w600">{{ $category->name }}</td>
-                        <td class="d-none d-sm-table-cell">{{ $category->category ? $category->category->name : '' }}</td>
+                        <td class="d-none d-sm-table-cell">{{ $category->parent ? $category->parent->name : '' }}</td>
                         <td class="text-center">
                         	<a href="categories/{{ $category->id }}/edit" class="btn btn-icon-only green">
                                 <i class="fa fa-edit"></i>
@@ -51,4 +51,5 @@
 @endsection
 
 @section('page-scripts')
+	<script type="text/javascript" src="{{ asset('backend/assets/js/category.js') }}"></script>
 @endsection

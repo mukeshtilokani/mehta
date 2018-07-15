@@ -13,7 +13,7 @@
 		<div class="col-md-12">
 			<div class="block">
 				<div class="block-content">
-					{!! Form::open(['route' => ['admin.categories.update', $category->id], 'method' => 'PUT', 'class' => '', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+					{!! Form::open(['route' => ['admin.categories.update', $category->id], 'method' => 'PUT', 'class' => 'js-frm-edit-category', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 	    				@include('includes.backend.forms.category.form',['from'=>'edit'])
 					{{ Form::close() }}
 				</div>
@@ -29,4 +29,5 @@
 @endsection
 
 @section('page-scripts')
+	<script type="text/javascript" src="{{ asset('backend/assets/js/category.js') }}"></script>
 @endsection

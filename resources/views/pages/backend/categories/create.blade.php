@@ -12,7 +12,7 @@
             <!-- Default Elements -->
             <div class="block">
                 <div class="block-content">
-                    {!! Form::open(['route' => 'admin.categories.store', 'class' => '', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::open(['route' => 'admin.categories.store', 'class' => 'js-frm-create-category', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
                         @include('includes.backend.forms.category.form',['from'=>'add'])
                     {{ Form::close() }}
                 </div>
@@ -29,4 +29,5 @@
 @section('plugins-scripts')
 @endsection
 @section('page-scripts')
+    <script type="text/javascript" src="{{ asset('backend/assets/js/category.js') }}"></script>
 @endsection

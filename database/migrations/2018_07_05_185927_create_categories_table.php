@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->text('description');
             $table->string('image')->nullable();
-            $table->string('image_file_name')->nullable()   ;
+            $table->string('image_file_name')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
