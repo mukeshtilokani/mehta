@@ -3,15 +3,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Product extends Model
+class Product extends Model implements HasMedia
 {
+    use HasMediaTrait;
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'products';
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('large')->width(1000);
+        $this->addMediaConversion('thumb')->width(150);
+    }
 
 	public function category()
     {
