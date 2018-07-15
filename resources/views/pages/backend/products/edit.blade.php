@@ -13,8 +13,12 @@
 		<div class="col-md-12">
 			<div class="block">
 				<div class="block-content">
-					{!! Form::open(['route' => ['products.update', $product->id], 'method' => 'PUT', 'class' => '', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+					{!! Form::open(['route' => ['products.update', $product->id], 'method' => 'PUT', 'class' => 'js-frm-edit-product', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 	    				@include('includes.backend.forms.product.form',['from'=>'edit'])
+	    				{!! Form::hidden('removed_images', "", ['id' => 'removed_images']) !!}
+		                {!! Form::hidden('newly_added_images', "", ['id' => 'newly_added_images']) !!}
+		                {!! Form::hidden('updated_product_images', "", ['id' => 'updated_product_images']) !!}
+		                {!! Form::hidden('existing_images_order', "", ['id' => 'existing_images_order']) !!}
 					{{ Form::close() }}
 				</div>
 			</div>
@@ -29,4 +33,5 @@
 @endsection
 
 @section('page-scripts')
+	<script type="text/javascript" src="{{ asset('backend/assets/js/products.js') }}"></script>
 @endsection
