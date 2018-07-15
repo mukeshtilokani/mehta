@@ -13,7 +13,7 @@
 		<div class="col-md-12">
 			<div class="block">
 				<div class="block-content">
-					{!! Form::open(['route' => 'products.store', 'class' => '', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+					{!! Form::open(['route' => 'products.store', 'class' => 'js-frm-create-product', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 	    				@include('includes.backend.forms.product.form',['from'=>'add'])
 					{{ Form::close() }}
 				</div>
@@ -29,4 +29,5 @@
 @endsection
 
 @section('page-scripts')
+	<script type="text/javascript" src="{{ asset('backend/assets/js/products.js') }}"></script>
 @endsection

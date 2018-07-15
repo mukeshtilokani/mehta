@@ -16,11 +16,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-alt-success" data-dismiss="modal">
+                    <button type="submit" class="btn btn-alt-success">
                         <i class="fa fa-check"></i> Delete it!
                     </button>
-                    <input name="_method" value="DELETE" type="hidden" />
                 </div>
+                <input name="_method" value="DELETE" type="hidden" />
             {!! Form::close() !!}
         </div>
     </div>
