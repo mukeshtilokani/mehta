@@ -1,23 +1,20 @@
-var Category = function() {
+var Gallery = function() {
     var handleValidation = function() {
-        $('.js-frm-create-category, .js-frm-edit-category').validate({
+        $('.js-frm-create-gallery, .js-frm-edit-gallery').validate({
             ignore: [],
             debug: false,
             messages: {
             },
             rules: {
-                name: {
+                title: {
                     required: true
                 },
-                category_image: {
+                gallery_image: {
                     required: true
                 },
-                description: {
-                    required: true
-                }
             },
             errorPlacement: function (error, element) { // render error placement for each input type
-                if(element.prop('id') == 'category_image') {
+                if(element.prop('id') == 'gallery_image') {
                     element.closest('.js-image-div').append(error);
                 } else {
                     element.parent().append(error);
@@ -32,7 +29,7 @@ var Category = function() {
         
     };
     var formEvents = function() {
-        $(document).on('change', '#category_image', function(e){
+        $(document).on('change', '#gallery_image', function(e){
             console.log('this.files', this.files);
             if(this.files && this.files[0]) {
                 $.each(this.files, function() {
@@ -56,5 +53,5 @@ var Category = function() {
 }();
 
 $(document).ready(function() {
-    Category.init();
+    Gallery.init();
 });

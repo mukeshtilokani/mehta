@@ -27,8 +27,7 @@
 				<tbody>
 					@foreach($galleries as $gallery)
 					<tr>
-						<td class="font-w600">{{ $gallery->name }}</td>
-                        <td class="d-none d-sm-table-cell">{{ $gallery->parent ? $gallery->parent->name : '' }}</td>
+						<td class="font-w600">{{ $gallery->title }}</td>
                         <td class="text-center">
                         	<a href="galleries/{{ $gallery->id }}/edit" class="btn btn-icon-only green">
                                 <i class="fa fa-edit"></i>

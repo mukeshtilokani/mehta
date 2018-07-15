@@ -49,7 +49,7 @@ class GalleriesController extends Controller
     public function store(Request $request)
     {
         $gallery = new Gallery();
-        $gallery->title = $request->name;
+        $gallery->title = $request->title;
 
         if($request->gallery_image) {
             $imageDetail = $this->uploadImage($request->gallery_image);
@@ -89,7 +89,7 @@ class GalleriesController extends Controller
     public function update(Request $request, $id)
     {
         $gallery = Gallery::find($id);
-        $gallery->title = $request->name;
+        $gallery->title = $request->title;
 
         if($request->gallery_image) {
             $imageDetail = $this->uploadImage($request->gallery_image);

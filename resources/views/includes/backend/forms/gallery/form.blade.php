@@ -1,7 +1,7 @@
 <div class="form-group row">
     <label class="col-12" for="example-text-input">Title</label>
     <div class="col-md-9">
-        {!! Form::text('title', $from=="edit" ? $gallery->name : null,['class' => 'form-control']) !!}
+        {!! Form::text('title', $from=="edit" ? $gallery->title : null,['class' => 'form-control']) !!}
     </div>
 </div>
 
