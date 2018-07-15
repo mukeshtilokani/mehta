@@ -5,4 +5,8 @@ $(document).ready(function() {
         $(".js-delete-confirmation-msg").html(confirmationMsg);
         $(".js-delete-modal-form").prop('action', action);
     });
+
+    $("#sortable" ).sortable({
+        placeholder: "droppable"
+    });
 });

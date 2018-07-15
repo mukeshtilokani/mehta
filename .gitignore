@@ -41,7 +41,7 @@ Temporary Items
 .apdisk
 
 # Project specific
-/public/backend
+#/public/backend
 /public/css
 /public/js/min
 /public/maps
