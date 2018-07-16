@@ -40,6 +40,7 @@
             <!-- Side Navigation -->
             <div class="content-side content-side-full">
                 <ul class="nav-main">
+                    <li class="nav-main-heading"><span class="sidebar-mini-visible">PG</span><span class="sidebar-mini-hidden">Sections</span></li>
                     <li>
                         <a href="{{ route('admin.dashboard') }}"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                     </li>
@@ -51,6 +52,10 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.galleries.index') }}"><i class="si si-layers"></i><span class="sidebar-mini-hide">Galleries</span></a>
+                    </li>
+                    <li class="nav-main-heading"><span class="sidebar-mini-visible">OT</span><span class="sidebar-mini-hidden">Other</span></li>
+                    <li>
+                        <a href="#"><i class="si si-lock"></i><span class="sidebar-mini-hide">Sign out</span></a>
                     </li>
                 </ul>
             </div>
