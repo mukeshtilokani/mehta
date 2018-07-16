@@ -49,6 +49,9 @@
                     <li>
                         <a href="{{ route('products.index') }}"><i class="si si-handbag"></i><span class="sidebar-mini-hide">Products</span></a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.galleries.index') }}"><i class="si si-layers"></i><span class="sidebar-mini-hide">Galleries</span></a>
+                    </li>
                 </ul>
             </div>
             <!-- END Side Navigation -->

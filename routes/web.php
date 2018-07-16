@@ -59,6 +59,14 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/categories/{market}', 'CategoriesController@update')->name('admin.categories.update');
     Route::get('/categories/{market}/edit', 'CategoriesController@edit')->name('admin.categories.edit');
 
+    // Gallery routes
+    Route::get('/galleries', 'GalleriesController@index')->name('admin.galleries.index');
+    Route::get('/galleries/create', 'GalleriesController@create')->name('admin.galleries.create');
+    Route::post('/galleries', 'GalleriesController@store')->name('admin.galleries.store');
+    Route::delete('/galleries/{market}', 'GalleriesController@destroy')->name('admin.galleries.destroy');
+    Route::put('/galleries/{market}', 'GalleriesController@update')->name('admin.galleries.update');
+    Route::get('/galleries/{market}/edit', 'GalleriesController@edit')->name('admin.galleries.edit');
+
     // product routes
     Route::resource('products', 'ProductController');
 });
