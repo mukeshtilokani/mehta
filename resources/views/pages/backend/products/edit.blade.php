@@ -8,6 +8,11 @@
 @endsection
 
 @section('content')
+	
+	@section('breadcrumbs')
+    	{!! Breadcrumbs::render('products.edit') !!}
+	@endsection
+
 	<h2 class="content-heading">Edit Product</h2>
 	<div class="row">
 		<div class="col-md-12">

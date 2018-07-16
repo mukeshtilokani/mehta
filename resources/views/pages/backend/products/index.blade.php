@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+
+	@section('breadcrumbs')
+	    {!! Breadcrumbs::render('products.index') !!}
+	@endsection
+
 	<div class="block">
 		<div class="block-header block-header-default">
 			<h3 class="block-title">Products</h3>
