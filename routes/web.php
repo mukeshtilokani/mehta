@@ -44,6 +44,9 @@ Route::get('forgot-password', function () {
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
+   
+    Route::get('dashboard', 'HomeController@dashboard')->name('admin.dashboard');
+
     Route::get('home', function () {
         return view('pages.backend.index');
     });
