@@ -8,6 +8,10 @@
 @endsection
 
 @section('content')
+	@section('breadcrumbs')
+	    {!! Breadcrumbs::render('products.create') !!}
+	@endsection
+
 	<h2 class="content-heading">Add Product</h2>
 	<div class="row">
 		<div class="col-md-12">

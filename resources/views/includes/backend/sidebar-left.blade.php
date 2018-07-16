@@ -41,13 +41,13 @@
             <div class="content-side content-side-full">
                 <ul class="nav-main">
                     <li>
-                        <a href="/"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                        <a href="{{ route('admin.dashboard') }}"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.categories.index') }}"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Category</span></a>
+                        <a href="{{ route('admin.categories.index') }}"><i class="si si-list"></i><span class="sidebar-mini-hide">Category</span></a>
                     </li>
                     <li>
-                        <a href="{{ route('products.index') }}"><i class="si si-layers"></i><span class="sidebar-mini-hide">Products</span></a>
+                        <a href="{{ route('products.index') }}"><i class="si si-handbag"></i><span class="sidebar-mini-hide">Products</span></a>
                     </li>
                 </ul>
             </div>
