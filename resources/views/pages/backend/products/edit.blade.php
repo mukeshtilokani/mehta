@@ -38,5 +38,5 @@
 @endsection
 
 @section('page-scripts')
-	<script type="text/javascript" src="{{ asset('backend/assets/js/products.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('backend/assets/js/custom/products.js') }}"></script>
 @endsection

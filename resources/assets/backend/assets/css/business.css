@@ -22002,3 +22002,11 @@ div.tagsinput span.tag a:hover {
 .note-editor.note-frame .card-header.note-toolbar .note-color .dropdown-menu {
   min-width: 350px;
 }
+
+.error {
+  color: red;
+}
+
+ul li.liSort {
+  list-style-type: none;
+}
