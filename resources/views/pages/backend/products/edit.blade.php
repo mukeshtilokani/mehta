@@ -8,6 +8,11 @@
 @endsection
 
 @section('content')
+	
+	@section('breadcrumbs')
+    	{!! Breadcrumbs::render('products.edit') !!}
+	@endsection
+
 	<h2 class="content-heading">Edit Product</h2>
 	<div class="row">
 		<div class="col-md-12">
@@ -33,5 +38,5 @@
 @endsection
 
 @section('page-scripts')
-	<script type="text/javascript" src="{{ asset('backend/assets/js/products.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('backend/assets/js/custom/products.js') }}"></script>
 @endsection

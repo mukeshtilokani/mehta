@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
+import uglifyes from 'gulp-uglifyes';
 import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
 import header from 'gulp-header';
@@ -51,6 +52,7 @@ const path = {
         jscore: dir.src + dir.assets + 'js/core/',
         jsplugins: dir.src + dir.assets + 'js/plugins/',
         jspages: dir.src + dir.assets + 'js/pages/',
+        jscustom: dir.src + dir.assets + 'js/custom/',
         media: dir.src + dir.assets + 'media/'
     },
     build: {
@@ -60,6 +62,7 @@ const path = {
         js: dir.build + dir.assets + 'js/',
         jsplugins: dir.build + dir.assets + 'js/plugins/',
         jspages: dir.build + dir.assets + 'js/pages/',
+        jscustom: dir.build + dir.assets + 'js/custom/',
         media: dir.build + dir.assets + 'media/'
     }
 };
@@ -72,11 +75,14 @@ const files = {
             path.src.css + pkgName + '.min.css',
             path.src.js + pkgName + '.js',
             path.src.jspages + '**/*.js',
+            path.src.jscustom + '**/*.js',
             path.dir.src + '**/*.php',
             path.dir.src + '**/*.html'
         ],
         // SASS files to watch
-        scss: path.src.scss + '**/*.scss'
+        scss: path.src.scss + '**/*.scss',
+        // Custom js files to watch
+        customjs: path.src.jscustom + '**/*.*'
     },
     src: {
         scss: {
@@ -110,6 +116,10 @@ const files = {
             // JS Pages files
             pages: [
                 path.src.jspages + '**/*.js'
+            ],
+            // Custom Pages files
+            custom: [
+                path.src.jscustom + '**/*.js'
             ]
         }
     },
@@ -120,9 +130,11 @@ const files = {
             path.src.jscore + '**/*.*',
             path.src.jsplugins + '**/*.*',
             path.src.jspages + '**/*.*',
+            // path.src.jscustom + '**/*.*',
             path.src.fonts + '**/*.*',
             path.src.media + 'avatars/**/*.*',
-            path.src.media + 'favicons/**/*.*'
+            path.src.media + 'favicons/**/*.*',
+            path.src.media + 'various/**/*.*'
         ]
     }
 };
@@ -237,6 +249,13 @@ gulp.task('build-js-concat-core', () => {
         .pipe(gulp.dest(path.build.js));
 });
 
+gulp.task('js-custom', () => {
+    return gulp.src(path.src.jscustom + '**/*.js')
+        .pipe(uglifyes())
+        .pipe(header(banner, {pkg : pkg} ))
+        .pipe(gulp.dest(path.build.jscustom));
+});
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -250,8 +269,13 @@ gulp.task('css', gulp.series(
     gulp.parallel('css-min-main', 'css-min-themes')
 ));
 
+// JS to min
+gulp.task('js', gulp.series(
+    gulp.parallel('js-custom')
+));
+
 // Build task
-gulp.task('build', gulp.series('css', 'build-clean', 'build-copy', 'build-js-concat-core'));
+gulp.task('build', gulp.series('css', 'build-clean', 'build-copy', 'build-js-concat-core', 'js'));
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -265,8 +289,12 @@ gulp.task('watch-scss', () => {
     return gulp.watch(files.watch.scss, gulp.series('css'));
 });
 
+gulp.task('watch-js', () => {
+    return gulp.watch(files.watch.customjs, gulp.series('js'));
+});
+
 // Watch task for all files
-gulp.task('watch', gulp.parallel('watch-scss'));
+gulp.task('watch', gulp.parallel('watch-scss','watch-js'));
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+
+	@section('breadcrumbs')
+	    {!! Breadcrumbs::render('products.index') !!}
+	@endsection
+
 	<div class="block">
 		<div class="block-header block-header-default">
 			<h3 class="block-title">Products</h3>
@@ -55,5 +60,5 @@
 @endsection
 
 @section('page-scripts')
-	<script type="text/javascript" src="{{ asset('backend/assets/js/products.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('backend/assets/js/custom/products.js') }}"></script>
 @endsection
