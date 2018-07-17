@@ -5,6 +5,11 @@
 @section('page-style')
 @endsection
 @section('content')
+
+    @section('breadcrumbs')
+        {!! Breadcrumbs::render('admin.galleries.create') !!}
+    @endsection
+
 	<!-- Bootstrap Design -->
     <h2 class="content-heading">Add Gallery</h2>
     <div class="row">

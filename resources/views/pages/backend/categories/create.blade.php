@@ -5,6 +5,11 @@
 @section('page-style')
 @endsection
 @section('content')
+
+    @section('breadcrumbs')
+        {!! Breadcrumbs::render('admin.categories.create') !!}
+    @endsection
+
 	<!-- Bootstrap Design -->
     <h2 class="content-heading">Add Category</h2>
     <div class="row">
