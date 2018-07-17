@@ -19,7 +19,7 @@ Breadcrumbs::register('admin.categories.create', function ($breadcrumbs) {
 // Categories edit
 Breadcrumbs::register('admin.categories.edit', function ($breadcrumbs) {
 	$breadcrumbs->parent('admin.categories.index');
-    $breadcrumbs->push('Edit', route('admin.categories.edit'));
+    $breadcrumbs->push('Edit', 'categories/{category}/edit');
 });
 
 // Product
@@ -37,4 +37,21 @@ Breadcrumbs::register('products.create', function ($breadcrumbs) {
 Breadcrumbs::register('products.edit', function ($breadcrumbs) {
 	$breadcrumbs->parent('products.index');
     $breadcrumbs->push('Edit', 'products/{product}/edit');
+});
+
+// Gallary
+Breadcrumbs::register('admin.galleries.index', function ($breadcrumbs) {
+    $breadcrumbs->push('Gallaries', route('admin.galleries.index'));
+});
+
+// Gallary > Create Gallary
+Breadcrumbs::register('admin.galleries.create', function ($breadcrumbs) {
+    $breadcrumbs->parent('admin.galleries.index');
+    $breadcrumbs->push('Create', route('admin.galleries.create'));
+});
+
+// Gallary > Edit Gallary
+Breadcrumbs::register('admin.galleries.edit', function ($breadcrumbs) {
+    $breadcrumbs->parent('admin.galleries.index');
+    $breadcrumbs->push('Edit', 'galleries/{gallary}/edit');
 });

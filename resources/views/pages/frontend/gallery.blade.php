@@ -27,12 +27,14 @@
 <section>
 	<div class="container">
 		<div class="row gallery mt-gt">
+			@foreach($galleries as $gallery)
 			<div class="col-4 col-md-3 mb-gt">
-				<a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="product-gallery">
-					<img src="https://unsplash.it/285.jpg?image=251" class="img-fluid">
+				<a href="{{ $gallery->image }}" data-toggle="lightbox" data-gallery="product-gallery">
+					<img src="{{ $gallery->image }}" class="img-fluid">
 				</a>
 			</div>
-			<div class="col-4 col-md-3 mb-gt">
+			@endforeach
+{{-- 			<div class="col-4 col-md-3 mb-gt">
 				<a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="product-gallery">
 					<img src="https://unsplash.it/285.jpg?image=252" class="img-fluid">
 				</a>
@@ -86,7 +88,7 @@
 				<a href="https://unsplash.it/1200/768.jpg?image=356" data-toggle="lightbox" data-gallery="product-gallery">
 					<img src="https://unsplash.it/285.jpg?image=356" class="img-fluid">
 				</a>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </section>

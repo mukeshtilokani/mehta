@@ -8,6 +8,11 @@
 @endsection
 
 @section('content')
+
+    @section('breadcrumbs')
+        {!! Breadcrumbs::render('admin.galleries.edit') !!}
+    @endsection
+
 	<h2 class="content-heading">Edit Gallery</h2>
 	<div class="row">
 		<div class="col-md-12">

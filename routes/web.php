@@ -31,6 +31,8 @@ Route::get('product-type', function () {
 Route::get('gallery', function () {
     return view('pages.frontend.gallery');
 });
+Route::get('gallery', 'Frontend\GalleryController@index');
+
 Route::get('contact', function () {
     return view('pages.frontend.contact');
 });
