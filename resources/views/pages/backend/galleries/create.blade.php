@@ -29,5 +29,5 @@
 @section('plugins-scripts')
 @endsection
 @section('page-scripts')
-    <script type="text/javascript" src="{{ asset('backend/assets/js/gallery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backend/assets/js/custom/gallery.js') }}"></script>
 @endsection
