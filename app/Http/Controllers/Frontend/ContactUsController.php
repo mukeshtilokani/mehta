@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Frontend;
 use Mail;
 use App\Mail\SendMail;
 use Illuminate\Http\Request;
-// use App\Custom\Helper\Common;
 use App\Http\Controllers\Controller;
 
 class ContactUsController extends Controller
 {
     /**
-     * Remove the specified resource from storage.
+     * Send contact us email
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,16 +29,11 @@ class ContactUsController extends Controller
         $email_templates = 'emails.contact';
         $email_from = $contact_details['email_address'];
         $recipient = config('config-variables.email_recipients.contact_us');
-
-        // Mail::to($recipient)
-        //   ->send(new SendMail($contact_details, $subject, $email_templates, $email_from));
 		
 		Mail::send('emails.contact', $contact_details, function($message) use ($recipient, $subject){
                 $message->to($recipient)
                 		->subject($subject);
 		});
-
-        // Common::sendMail($contact_details, $recipient, 'Mehta | Support', 'emails.contact');
         
         return response()->json([
             'status' => 'suceess',

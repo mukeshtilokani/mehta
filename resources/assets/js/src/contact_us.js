@@ -47,7 +47,6 @@ var Contact = function() {
                     success: function(response){
                         $('.js-contact-us-submit-btn').removeAttr('disabled');
                         $('input[type=text]').val('');
-                        // $('.js-contact-us-form').hide();
                         $('.js-inquiry-success-message').show();
                     }
                 });
