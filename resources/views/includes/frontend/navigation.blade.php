@@ -20,12 +20,7 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" href="javascript:void(0)" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/products">All categories</a>
-						<a class="dropdown-item" href="/product-type">Product 1</a>
-						<a class="dropdown-item" href="/product-type">Product 2</a>
-						<a class="dropdown-item" href="/product-type">Product 3</a>
-						<a class="dropdown-item" href="/product-type">Product 4</a>
-						{{-- <a class="dropdown-item" href="/messagemastr">messagemastr</a> --}}
+						<a class="dropdown-item" href="{{ route('frontend.categories') }}">All categories</a>
 					</div>
 				</li>
 				<li>
