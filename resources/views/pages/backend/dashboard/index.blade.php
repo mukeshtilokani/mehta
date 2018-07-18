@@ -37,7 +37,7 @@
 				<div class="block-content block-content-full">
 					<div class="font-size-sm font-w600 text-uppercase text-muted">Gallary</div>
 					<div class="py-50 text-center">
-						<div class="font-size-h1 font-w700 mb-0">0</div>
+						<div class="font-size-h1 font-w700 mb-0">{{ count($galleries) }}</div>
 					</div>
 				</div>
 			</a>
