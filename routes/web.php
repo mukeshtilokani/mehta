@@ -25,9 +25,9 @@ Route::get('about', function () {
 Route::get('product', function () {
     return view('pages.frontend.product');
 });
-Route::get('product-type', function () {
-    return view('pages.frontend.product-type');
-});
+Route::get('categories', function () {
+    return view('pages.frontend.categories');
+})->name('frontend.categories');
 Route::get('gallery', function () {
     return view('pages.frontend.gallery');
 });
@@ -43,9 +43,11 @@ Route::get('forgot-password', function () {
     return view('auth.forgot-password');
 });
 
+Route::post('submit-inquiry', 'Frontend\ContactUsController@sendContactUsMail')->name('send.contact.email');
+
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
    
     Route::get('dashboard', 'HomeController@dashboard')->name('admin.dashboard');
 

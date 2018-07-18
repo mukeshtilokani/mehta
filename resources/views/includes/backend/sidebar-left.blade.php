@@ -55,7 +55,10 @@
                     </li>
                     <li class="nav-main-heading"><span class="sidebar-mini-visible">OT</span><span class="sidebar-mini-hidden">Other</span></li>
                     <li>
-                        <a href="#"><i class="si si-lock"></i><span class="sidebar-mini-hide">Sign out</span></a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();"><i class="si si-lock"></i><span class="sidebar-mini-hide">Sign out</span></a>
+                        <form id="logout-form-header" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 </ul>
             </div>
