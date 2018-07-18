@@ -43,6 +43,8 @@ Route::get('forgot-password', function () {
     return view('auth.forgot-password');
 });
 
+Route::post('submit-inquiry', 'Frontend\ContactUsController@sendContactUsMail')->name('send.contact.email');
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
