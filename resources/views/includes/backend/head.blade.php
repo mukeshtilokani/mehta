@@ -16,7 +16,6 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" id="css-main" href="{{ asset('backend/assets/css/business.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/common.css') }}">
 
 
     {{-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: --}}
