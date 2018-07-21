@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Config;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use App\Jobs\ImageConversion;
 use Intervention\Image\ImageManager;
 
 class GalleriesController extends Controller
 {
+
+    /**
+    * @var predefined image path
+    */
+    protected $imagePath;
+
+    /**
+    * @var predefined conversion sizes
+    */
+    protected $conversions;
+
     /**
      * Create a new controller instance.
      *
@@ -15,7 +28,8 @@ class GalleriesController extends Controller
      */
     function __construct()
     {
-        
+        $this->imagePath = Config::get('config-variables.imagePath');
+        $this->conversions = Config::get('img-conversion.conversions');        
     }
 
     /**
@@ -130,6 +144,12 @@ class GalleriesController extends Controller
             $galleryImagePath .= $filename;
             $image = $imageManager->make($image);
             $image->save($galleryImagePath);
+
+            ImageConversion::dispatch(
+              $filename,
+              $this->imagePath['gallery_image'],
+              $this->conversions['gallery_image']
+            );            
         }
 
         return [

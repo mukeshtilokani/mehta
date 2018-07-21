@@ -27,7 +27,7 @@ var Contact = function() {
             	},
                 zip: {
                     required: true
-                }                
+                }
             },
             errorPlacement: function(error, e){
                 $(e).parent().append(error);
@@ -46,7 +46,7 @@ var Contact = function() {
                     data: $('.js-contact-us-form').serialize(),
                     success: function(response){
                         $('.js-contact-us-submit-btn').removeAttr('disabled');
-                        $('input[type=text]').val('');
+                        $('input[type="text"]').val('');
                         $('.js-inquiry-success-message').show();
                     }
                 });
