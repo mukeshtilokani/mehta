@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Using class based composers...
+        View::composer(
+            'includes.frontend.navigation', 'App\Http\ViewComposers\CategoryComposer'
+        );
     }
 
     /**

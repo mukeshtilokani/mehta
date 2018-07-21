@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+
+	@section('breadcrumbs')
+	    {!! Breadcrumbs::render('admin.galleries.index') !!}
+	@endsection
+
 	<div class="block">
 		<div class="block-header block-header-default">
 			<h3 class="block-title">Galleries</h3>

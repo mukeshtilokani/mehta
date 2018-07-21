@@ -18,14 +18,12 @@
 					<a href="/about">About</a>
 				</li>
 				<li class="dropdown">
-					<a class="dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+					<a class="dropdown-toggle" href="javascript:void(0)" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/products">All Products</a>
-						<a class="dropdown-item" href="/product-type">Product 1</a>
-						<a class="dropdown-item" href="/product-type">Product 2</a>
-						<a class="dropdown-item" href="/product-type">Product 3</a>
-						<a class="dropdown-item" href="/product-type">Product 4</a>
-						{{-- <a class="dropdown-item" href="/messagemastr">messagemastr</a> --}}
+						<a class="dropdown-item" href="{{ route('frontend.categories') }}">All categories</a>
+						@foreach($categories as $category)
+							<a class="dropdown-item" href="{{ route('frontend.category.detail', ['id' => $category->id]) }}">{{ $category->name }}</a>
+						@endforeach
 					</div>
 				</li>
 				<li>

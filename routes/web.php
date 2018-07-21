@@ -16,21 +16,19 @@ Auth::routes();
 Route::get('/', function () {
     return view('pages.frontend.home');
 });
-Route::get('products', function () {
-    return view('pages.frontend.products');
-});
+
 Route::get('about', function () {
     return view('pages.frontend.about');
 });
-Route::get('product', function () {
-    return view('pages.frontend.product');
-});
-Route::get('product-type', function () {
-    return view('pages.frontend.product-type');
-});
-Route::get('gallery', function () {
-    return view('pages.frontend.gallery');
-});
+
+Route::get('categories', 'Frontend\CategoriesController@index')->name('frontend.categories');
+
+Route::get('category/{id}', 'Frontend\CategoriesController@categoryDetail')->name('frontend.category.detail');
+
+Route::get('product/{id}', 'Frontend\ProductsController@detail')->name('frontend.product.detail');
+
+Route::get('gallery', 'Frontend\GalleryController@index');
+
 Route::get('contact', function () {
     return view('pages.frontend.contact');
 });
@@ -41,9 +39,11 @@ Route::get('forgot-password', function () {
     return view('auth.forgot-password');
 });
 
+Route::post('submit-inquiry', 'Frontend\ContactUsController@sendContactUsMail')->name('send.contact.email');
+
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
    
     Route::get('dashboard', 'HomeController@dashboard')->name('admin.dashboard');
 

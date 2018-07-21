@@ -10,7 +10,7 @@
     <div class="col-md-9 js-image-div">
         <div class="custom-file">
             <!-- Populating custom file input label with the selected filename (data-toggle="custom-file-input" is initialized in Codebase() -> uiHelperCoreCustomFileInput()) -->
-            <input type="file" class="custom-file-input js-custom-file-input-enabled" id="gallery_image" id="gallery_image" data-toggle="custom-file-input">
+            <input type="file" class="custom-file-input js-custom-file-input-enabled" id="gallery_image" name="gallery_image" data-toggle="custom-file-input">
             <label class="custom-file-label" for="example-file-input-custom">Choose file</label>
         </div>
         <div class="row my-4">

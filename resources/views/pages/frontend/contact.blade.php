@@ -26,53 +26,66 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7">
-				<form>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="alert alert-success js-inquiry-success-message" role="alert" style="display: none">
+							Thanks for getting in touch.<br>Someone will get back to you shortly.
+						</div>
+					</div>
+				</div>
+
+				{!! Form::open(['class' => 'js-contact-us-form', 'role' => 'form']) !!}
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="validationDefault01">First name</label>
-							<input type="text" class="form-control" id="validationDefault01" placeholder="First name" required>
+							<input type="text" name="first_name" class="form-control" id="validationDefault01" placeholder="First name">
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="validationDefault02">Last name</label>
-							<input type="text" class="form-control" id="validationDefault02" placeholder="Last name" required>
+							<input type="text" name="last_name" class="form-control" id="validationDefault02" placeholder="Last name">
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="validationDefault03">Email address</label>
-							<input type="email" class="form-control" id="validationDefault03" aria-describedby="emailHelp" placeholder="Enter email">
+							<input type="text" class="form-control" name="email_address" id="validationDefault03" aria-describedby="emailHelp" placeholder="Enter email">
 							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="validationDefault04">Phone number</label>
-							<input type="tel" class="form-control" id="validationDefault04" aria-describedby="PhoneHelp" placeholder="Mobile number" required>
+							<input type="text" class="form-control" name="phone_number" id="validationDefault04" aria-describedby="PhoneHelp" placeholder="Mobile number">
 							<small id="PhoneHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="validationDefault05">City</label>
-							<input type="text" class="form-control" id="validationDefault05" placeholder="City" required>
+							<input type="text" class="form-control" name="city" id="validationDefault05" placeholder="City">
 						</div>
 						<div class="col-md-3 mb-3">
 							<label for="validationDefault06">State</label>
-							<input type="text" class="form-control" id="validationDefault06" placeholder="State" required>
+							<input type="text" class="form-control" name="state" id="validationDefault06" placeholder="State">
 						</div>
 						<div class="col-md-3 mb-3">
 							<label for="validationDefault07">Zip</label>
-							<input type="text" class="form-control" id="validationDefault07" placeholder="Zip" required>
+							<input type="text" class="form-control" name="zip" id="validationDefault07" placeholder="Zip">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-12">
+							<label for="validationDefault08">Message</label>
+							<textarea name="message" class="form-control" cols="30" rows="6"></textarea>
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customCheck1">
-								<label class="custom-control-label" for="customCheck1">Agree to <a href="#" data-toggle="modal" data-target="#terms-conditions">terms and conditions</a></label>
-							</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="customCheck1">
+							<label class="custom-control-label" for="customCheck1">Agree to <a href="#" data-toggle="modal" data-target="#terms-conditions">terms and conditions</a></label>
 						</div>
 					</div>
-					<button class="btn btn-primary" type="submit">Submit form</button>
-				</form>
+					<button class="btn btn-primary js-contact-us-submit-btn" type="submit">Submit form</button>
+				{{ Form::close() }}
 			</div>
 			<div class="col-lg-5 mt-gt mt-lg-0">
 				<div class="row">
@@ -144,4 +157,8 @@
 		$(this).ekkoLightbox({ wrapping: false });
 	});
 </script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('js/min/contact_us.min.js') }}"></script>
 @endsection
