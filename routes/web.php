@@ -16,21 +16,17 @@ Auth::routes();
 Route::get('/', function () {
     return view('pages.frontend.home');
 });
-Route::get('products', function () {
-    return view('pages.frontend.products');
-});
+
 Route::get('about', function () {
     return view('pages.frontend.about');
 });
-Route::get('product', function () {
-    return view('pages.frontend.product');
-});
-Route::get('categories', function () {
-    return view('pages.frontend.categories');
-})->name('frontend.categories');
-Route::get('gallery', function () {
-    return view('pages.frontend.gallery');
-});
+
+Route::get('categories', 'Frontend\CategoriesController@index')->name('frontend.categories');
+
+Route::get('category/{id}', 'Frontend\CategoriesController@categoryDetail')->name('frontend.category.detail');
+
+Route::get('product/{id}', 'Frontend\ProductsController@detail')->name('frontend.product.detail');
+
 Route::get('gallery', 'Frontend\GalleryController@index');
 
 Route::get('contact', function () {

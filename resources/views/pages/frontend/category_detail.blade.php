@@ -13,10 +13,11 @@
 		<div class="container">
 			<div class="row align-items-center h-100">
 				<div class="col-12">
-					<h1 class="hero-text font-weight-light">All Categories</h1>
+					<h1 class="hero-text font-weight-light">{{ $categoryDetail->name }}</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="/products">All Categories</a></li>
+							<li class="breadcrumb-item active" aria-current="page">{{ $categoryDetail->name }}</li>
 						</ol>
 					</nav>
 
@@ -31,16 +32,15 @@
 <section class="bg-light">
 	<div class="container">
 		<div class="row mt-gt">
-			@foreach($categories as $category)
+			@foreach($categoryProducts as $product)
 				<div class="col-md-6 col-lg-4">
 					<figure class="effect-lily">
-						<img src="{{ $category->image }}" alt=""/>
+						<img src="{{ $product->getMedia('product')->first()->getUrl() }}" alt=""/>
 						<figcaption>
 							<div>
-								<h2>{{ $category->name }}</h2>
-								<p>{{ $category->description }}</p>
+								<h2>{{ $product->name }}</h2>
 							</div>
-							<a href="{{ route('frontend.category.detail', ['id' => $category->id]) }}">View products</a>
+							<a href="{{ route('frontend.product.detail', ['id' => $product->id]) }}">View detail</a>
 						</figcaption>			
 					</figure>
 				</div>
