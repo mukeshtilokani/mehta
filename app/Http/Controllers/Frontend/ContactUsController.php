@@ -24,6 +24,7 @@ class ContactUsController extends Controller
         $contact_details['city'] = $request->city;
         $contact_details['state'] = $request->state;
         $contact_details['zip'] = $request->zip;
+        $contact_details['message_content'] = $request->message;
 
         $subject = 'Message from ' . $contact_details['first_name'];
         $email_templates = 'emails.contact';

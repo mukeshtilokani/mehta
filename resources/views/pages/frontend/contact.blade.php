@@ -72,12 +72,16 @@
 							<input type="text" class="form-control" name="zip" id="validationDefault07" placeholder="Zip">
 						</div>
 					</div>
+					<div class="form-row">
+						<div class="col-md-12">
+							<label for="validationDefault08">Message</label>
+							<textarea name="message" class="form-control" cols="30" rows="6"></textarea>
+						</div>
+					</div>
 					<div class="form-group">
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customCheck1">
-								<label class="custom-control-label" for="customCheck1">Agree to <a href="#" data-toggle="modal" data-target="#terms-conditions">terms and conditions</a></label>
-							</div>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="customCheck1">
+							<label class="custom-control-label" for="customCheck1">Agree to <a href="#" data-toggle="modal" data-target="#terms-conditions">terms and conditions</a></label>
 						</div>
 					</div>
 					<button class="btn btn-primary js-contact-us-submit-btn" type="submit">Submit form</button>
