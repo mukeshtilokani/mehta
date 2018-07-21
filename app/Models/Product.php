@@ -20,8 +20,8 @@ class Product extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('large')->width(1000);
-        $this->addMediaConversion('thumb')->width(150);
+        $this->addMediaConversion('large')->width(1200);
+        $this->addMediaConversion('thumb')->width(400);
     }
 
 	public function category()

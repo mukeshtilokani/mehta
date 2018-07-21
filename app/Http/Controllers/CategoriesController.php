@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Config;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Jobs\ImageConversion;
 use Intervention\Image\ImageManager;
 
 class CategoriesController extends Controller
 {
+
+    /**
+    * @var predefined image path
+    */
+    protected $imagePath;
+
+    /**
+    * @var predefined conversion sizes
+    */
+    protected $conversions;
+
     /**
      * Create a new controller instance.
      *
@@ -15,7 +28,8 @@ class CategoriesController extends Controller
      */
     function __construct()
     {
-        
+        $this->imagePath = Config::get('config-variables.imagePath');
+        $this->conversions = Config::get('img-conversion.conversions');
     }
 
     /**
@@ -137,6 +151,12 @@ class CategoriesController extends Controller
             $categoryImagePath .= $filename;
             $image = $imageManager->make($image);
             $image->save($categoryImagePath);
+
+            ImageConversion::dispatch(
+              $filename,
+              $this->imagePath['category_image'],
+              $this->conversions['category_image']
+            );
         }
 
         return [
