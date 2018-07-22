@@ -21,6 +21,9 @@
 					<a class="dropdown-toggle" href="javascript:void(0)" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="{{ route('frontend.categories') }}">All categories</a>
+						@foreach($categories as $category)
+							<a class="dropdown-item" href="{{ route('frontend.category.detail', ['id' => $category->id]) }}">{{ $category->name }}</a>
+						@endforeach
 					</div>
 				</li>
 				<li>
