@@ -33,12 +33,19 @@ class ProductsController extends Controller
      */
     public function downloadBrochure($id)
     {
-        $file= storage_path(). '/app/public/products/' .$id .'/';   
+        $product = Product::findOrFail($id);
+
+        $brochureUrl = '';
+        if($product->brochure_url) {
+            $brochureUrl = base_path($product->brochure_url);
+        } else {
+            $brochureUrl = storage_path() . '/app/public/brochures/default-brochure.pdf';
+        }
 
         $headers = array(
-              'Content-Type: application/pdf',
-            );
+          'Content-Type: application/pdf',
+        );
 
-        return Response::download($file, 'brochure.pdf', $headers);
+        return Response::download($brochureUrl, 'brochure.pdf', $headers);
     }    
 }

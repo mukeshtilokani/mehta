@@ -64,11 +64,16 @@ class ProductController extends Controller
             }
 
             if($request->product_brochure) {
-                $fileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+                $brochureFileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+
+                $brochureFilePath = 'storage/app/public/brochures/' .$product->id .'/'. $brochureFileName;
 
                 $request->file('product_brochure')->move(
-                    storage_path() . '/app/public/products/' .$product->id .'/', $fileName
+                    storage_path() . '/app/public/brochures/' .$product->id .'/', $brochureFileName
                 );
+
+                $product->brochure_url = $brochureFilePath;
+                $product->save();
             }
         }
 
@@ -168,10 +173,16 @@ class ProductController extends Controller
             }
 
             if($request->product_brochure) {
-                $fileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+                $brochureFileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+
+                $brochureFilePath = 'storage/app/public/brochures/' .$product->id .'/'. $brochureFileName;
+
                 $request->file('product_brochure')->move(
-                    storage_path() . '/app/public/products/' .$product->id .'/', $fileName
+                    storage_path() . '/app/public/brochures/' .$product->id .'/', $brochureFileName
                 );
+
+                $product->brochure_url = $brochureFilePath;
+                $product->save();
             }            
         }
 
