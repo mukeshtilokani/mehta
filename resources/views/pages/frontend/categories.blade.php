@@ -38,7 +38,7 @@
 						<figcaption>
 							<div>
 								<h2>{{ $category->name }}</h2>
-								<p>{{ $category->description }}</p>
+								<p>{{ mb_strimwidth($category->description, 0, 70, "...") }}</p>
 							</div>
 							<a href="{{ route('frontend.category.detail', ['id' => $category->id]) }}">View products</a>
 						</figcaption>			

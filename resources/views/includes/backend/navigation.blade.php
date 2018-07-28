@@ -179,9 +179,9 @@
 
 			<!-- Toggle Side Overlay -->
 			<!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->
-			<button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="side_overlay_toggle">
+			<!-- <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="side_overlay_toggle">
 				<i class="fa fa-search"></i>
-			</button>
+			</button> -->
 			<!-- END Toggle Side Overlay -->
 		</div>
 		<!-- END Right Section -->

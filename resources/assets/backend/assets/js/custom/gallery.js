@@ -54,3 +54,13 @@ var Gallery = function() {
 $(document).ready(function() {
     Gallery.init();
 });
+
+jQuery(function () {
+    jQuery('.js-dataTable-full-pagination').dataTable({
+        pagingType: "full_numbers",
+        columnDefs: [ { orderable: false, targets: [ 1 ] } ],
+        pageLength: 8,
+        lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
+        autoWidth: false
+    });
+});
