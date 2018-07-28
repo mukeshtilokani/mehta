@@ -27,7 +27,7 @@
 				<div class="card h-100">
 					<div class="card-body">
 						<h6 class="font-weight-bold">Description</h6>
-						{{ $productDetail->description }}
+						{!! $productDetail->description !!}
 					</div>
 				</div>
 			</div>

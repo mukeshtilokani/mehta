@@ -12,7 +12,11 @@ var Product = function() {
                     required: true
                 },
                 description: {
-                    required: true
+                    required: function(textarea) {
+                      CKEDITOR.instances[textarea.id].updateElement(); // update textarea
+                      var editorcontent = textarea.value.replace(/<[^>]*>/gi, ''); // strip tags
+                      return editorcontent.length === 0;
+                    }
                 }
             },
             errorPlacement: function(error, element) { // render error placement for each input type
@@ -127,6 +131,10 @@ var Product = function() {
                 });
             }
         });
+
+        if($('.js-frm-create-product').length > 0) {
+            $('.js-add-product-image').trigger('click');
+        }
     };
 
     var checkRemoveImageButton = function() {
@@ -155,5 +163,16 @@ $(document).ready(function() {
 
     $("input[type='file']").on('fileloaded', function(event, file, previewId, index, reader) {
         $("input[type='submit']").prop("disabled", "");
+    });
+});
+
+jQuery(function () {
+    Codebase.helpers(['ckeditor', 'simplemde']);
+    jQuery('.js-dataTable-full-pagination').dataTable({
+        pagingType: "full_numbers",
+        columnDefs: [ { orderable: false, targets: [ 2 ] } ],
+        pageLength: 8,
+        lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
+        autoWidth: false
     });
 });

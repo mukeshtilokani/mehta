@@ -30,6 +30,7 @@
 @endsection
 
 @section('plugins-scripts')
+	<script type="text/javascript" src="{{ asset('backend/assets/js/plugins/ckeditor/ckeditor.js') }}"></script>
 @endsection
 
 @section('page-scripts')
