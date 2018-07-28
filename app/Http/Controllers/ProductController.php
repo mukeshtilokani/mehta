@@ -62,6 +62,14 @@ class ProductController extends Controller
                     $media->save();
                 }
             }
+
+            if($request->product_brochure) {
+                $fileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+
+                $request->file('product_brochure')->move(
+                    storage_path() . '/app/public/products/' .$product->id .'/', $fileName
+                );
+            }
         }
 
         flash()->success('Product added successfully.');
@@ -158,6 +166,13 @@ class ProductController extends Controller
                     $media->save();
                 }
             }
+
+            if($request->product_brochure) {
+                $fileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+                $request->file('product_brochure')->move(
+                    storage_path() . '/app/public/products/' .$product->id .'/', $fileName
+                );
+            }            
         }
 
         flash()->success('Product updated successfully.');

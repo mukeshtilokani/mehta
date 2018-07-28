@@ -9,4 +9,11 @@ $(document).ready(function() {
     $("#sortable").sortable({
         placeholder: "droppable"
     });
+
+	jQuery(function () {
+    // Init page helpers (SimpleMDE plugin)
+    	Codebase.helpers('simplemde');
+    });
+
+    // $('.js-simplemde').SimpleMDE();
 });

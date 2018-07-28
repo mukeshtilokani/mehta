@@ -53,9 +53,16 @@
 </div>
 
 <div class="form-group row">
+    <label class="col-md-3">Upload brochure</label>
+    <div class="col-md-9">
+        <input type="file" name="product_brochure" class="js-brochure">
+    </div>
+</div>
+
+<div class="form-group row">
     <label class="col-md-3" for="example-text-input">Description</label>
     <div class="col-md-9">
-         {{ Form::textarea('description', $from=="edit" ? $product->description : null, ['class' => 'form-control', 'id' =>'description', 'rows' => '6']) }}
+         {{ Form::textarea('description', $from=="edit" ? $product->description : null, ['class' => 'form-control js-simplemde', 'id' =>'description', 'rows' => '6']) }}
     </div>
 </div>
 
