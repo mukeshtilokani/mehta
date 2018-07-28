@@ -68,78 +68,21 @@
 <section>
 	<div class="container">
 		<div class="row mt-gt">
-			<div class="col-md-6 col-lg-4">
-				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=101" alt=""/>
-					<figcaption>
-						<div>
-							<h2>Title</h2>
-							<p>Lily likes to play with crayons and pencils</p>
-						</div>
-						<a href="#">View more</a>
-					</figcaption>			
-				</figure>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=102" alt=""/>
-					<figcaption>
-						<div>
-							<h2>Title</h2>
-							<p>Lily likes to play with crayons and pencils</p>
-						</div>
-						<a href="#">View more</a>
-					</figcaption>			
-				</figure>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=103" alt=""/>
-					<figcaption>
-						<div>
-							<h2>Title</h2>
-							<p>Lily likes to play with crayons and pencils</p>
-						</div>
-						<a href="#">View more</a>
-					</figcaption>			
-				</figure>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=104" alt=""/>
-					<figcaption>
-						<div>
-							<h2>Title</h2>
-							<p>Lily likes to play with crayons and pencils</p>
-						</div>
-						<a href="#">View more</a>
-					</figcaption>			
-				</figure>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=106" alt=""/>
-					<figcaption>
-						<div>
-							<h2>Title</h2>
-							<p>Lily likes to play with crayons and pencils</p>
-						</div>
-						<a href="#">View more</a>
-					</figcaption>			
-				</figure>
-			</div>
-			<div class="col-md-6 col-lg-4">
-				<figure class="effect-lily">
-					<img src="https://picsum.photos/400/400?image=107" alt=""/>
-					<figcaption>
-						<div>
-							<h2>Title</h2>
-							<p>Lily likes to play with crayons and pencils</p>
-						</div>
-						<a href="#">View more</a>
-					</figcaption>			
-				</figure>
-			</div>
+			@foreach($otherProducts as $product)
+				<div class="col-md-6 col-lg-4">
+					<a href="{{ route('frontend.product.detail', ['id' => $product->id]) }}">
+						<figure class="effect-lily">
+							<img src="{{ $product->getMedia('product')->first()->getUrl() }}" alt=""/>
+							<figcaption>
+								<div>
+									<h2>{{ $product->name }}</h2>
+									<p>{{ $product->description }}</p>
+								</div>
+							</figcaption>			
+						</figure>
+					</a>
+				</div>
+			@endforeach
 		</div>
 	</div>
 </section>

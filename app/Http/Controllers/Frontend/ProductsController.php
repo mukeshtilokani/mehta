@@ -18,7 +18,9 @@ class ProductsController extends Controller
     public function detail(Request $request, $id)
     {
         $productDetail = Product::with('category')->where('id', $id)->first();
+
+        $otherProducts = Product::with('category')->where('id', '!=', $id)->where('category_id', $productDetail->category_id)->get();
         
-        return view('pages.frontend.product_detail', compact('productDetail'));
+        return view('pages.frontend.product_detail', compact('productDetail', 'otherProducts'));
     }
 }
