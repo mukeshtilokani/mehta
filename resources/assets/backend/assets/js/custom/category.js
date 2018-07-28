@@ -9,7 +9,9 @@ var Category = function() {
                     required: true
                 },
                 category_image: {
-                    required: true
+                    required: function() {
+                        return $('.js-frm-edit-category').length == 0 ? true : false;
+                    }
                 },
                 description: {
                     required: true
@@ -56,4 +58,14 @@ var Category = function() {
 
 $(document).ready(function() {
     Category.init();
+});
+
+jQuery(function () {
+    jQuery('.js-dataTable-full-pagination').dataTable({
+        pagingType: "full_numbers",
+        columnDefs: [ { orderable: false, targets: [ 2 ] } ],
+        pageLength: 8,
+        lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
+        autoWidth: false
+    });
 });
