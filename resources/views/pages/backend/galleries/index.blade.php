@@ -22,27 +22,29 @@
             </a>
 		</div>
 		<div class="block-content">
-			<table class="table table-bordered table-striped table-vcenter js-dataTable-full">
-				<thead>
-					<tr>
-                        <th>Title</th>
-                        <th class="text-center" style="width: 15%;">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach($galleries as $gallery)
-					<tr>
-						<td class="font-w600">{{ $gallery->title }}</td>
-                        <td class="text-center">
-                        	<a href="galleries/{{ $gallery->id }}/edit" class="btn btn-icon-only green">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a href="#" data-confirm-msg="Are you sure you would like to delete this record?" data-delete-url="galleries/{{ $gallery->id }}" class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
-                        </td>
-					</tr>
-					@endforeach
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination">
+					<thead>
+						<tr>
+	                        <th>Title</th>
+	                        <th class="text-center" style="width: 15%;">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($galleries as $gallery)
+						<tr>
+							<td class="font-w600">{{ $gallery->title }}</td>
+	                        <td class="text-center">
+	                        	<a href="galleries/{{ $gallery->id }}/edit" class="btn btn-icon-only green">
+	                                <i class="fa fa-edit"></i>
+	                            </a>
+	                            <a href="#" data-confirm-msg="Are you sure you would like to delete this record?" data-delete-url="admin/galleries/{{ $gallery->id }}" class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+	                        </td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 @endsection

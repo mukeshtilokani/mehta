@@ -62,6 +62,19 @@ class ProductController extends Controller
                     $media->save();
                 }
             }
+
+            if($request->product_brochure) {
+                $brochureFileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+
+                $brochureFilePath = 'storage/app/public/brochures/' .$product->id .'/'. $brochureFileName;
+
+                $request->file('product_brochure')->move(
+                    storage_path() . '/app/public/brochures/' .$product->id .'/', $brochureFileName
+                );
+
+                $product->brochure_url = $brochureFilePath;
+                $product->save();
+            }
         }
 
         flash()->success('Product added successfully.');
@@ -158,6 +171,19 @@ class ProductController extends Controller
                     $media->save();
                 }
             }
+
+            if($request->product_brochure) {
+                $brochureFileName = md5(microtime(true) . rand(10,99)) . '.' . $request->product_brochure->getClientOriginalExtension();
+
+                $brochureFilePath = 'storage/app/public/brochures/' .$product->id .'/'. $brochureFileName;
+
+                $request->file('product_brochure')->move(
+                    storage_path() . '/app/public/brochures/' .$product->id .'/', $brochureFileName
+                );
+
+                $product->brochure_url = $brochureFilePath;
+                $product->save();
+            }            
         }
 
         flash()->success('Product updated successfully.');

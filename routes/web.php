@@ -27,6 +27,8 @@ Route::get('category/{id}', 'Frontend\CategoriesController@categoryDetail')->nam
 
 Route::get('product/{id}', 'Frontend\ProductsController@detail')->name('frontend.product.detail');
 
+Route::get('download/product-brochure/{id}', 'Frontend\ProductsController@downloadBrochure')->name('download.product.brochure');
+
 Route::get('gallery', 'Frontend\GalleryController@index');
 
 Route::get('contact', function () {

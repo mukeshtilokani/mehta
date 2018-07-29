@@ -53,9 +53,22 @@
 </div>
 
 <div class="form-group row">
+    <label class="col-md-3">Upload brochure</label>
+    <div class="col-md-6">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input js-custom-file-input-enabled" id="product_brochure" name="product_brochure" data-toggle="custom-file-input">
+            <label class="custom-file-label" for="example-file-input-custom">Choose file</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <button>Remove</button>
+    </div>
+</div>
+
+<div class="form-group row">
     <label class="col-md-3" for="example-text-input">Description</label>
     <div class="col-md-9">
-         {{ Form::textarea('description', $from=="edit" ? $product->description : null, ['class' => 'form-control', 'id' =>'description', 'rows' => '6']) }}
+         {{ Form::textarea('description', $from=="edit" ? $product->description : null, ['class' => 'form-control', 'id' =>'js-ckeditor', 'rows' => '6']) }}
     </div>
 </div>
 

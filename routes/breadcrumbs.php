@@ -41,7 +41,7 @@ Breadcrumbs::register('products.edit', function ($breadcrumbs) {
 
 // Gallary
 Breadcrumbs::register('admin.galleries.index', function ($breadcrumbs) {
-    $breadcrumbs->push('Gallaries', route('admin.galleries.index'));
+    $breadcrumbs->push('Galleries', route('admin.galleries.index'));
 });
 
 // Gallary > Create Gallary
