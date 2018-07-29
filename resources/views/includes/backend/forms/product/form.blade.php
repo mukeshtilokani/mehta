@@ -61,7 +61,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        <button>Remove</button>
+        <a class="js-remove-brochure btn green" href="javascript:void(0)">Remove</a>
     </div>
 </div>
 

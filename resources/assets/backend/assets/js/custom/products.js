@@ -130,7 +130,7 @@ var Product = function() {
                     reader.readAsDataURL(this);
                 });
             }
-        });
+        });     
 
         if($('.js-frm-create-product').length > 0) {
             $('.js-add-product-image').trigger('click');
@@ -164,6 +164,12 @@ $(document).ready(function() {
     $("input[type='file']").on('fileloaded', function(event, file, previewId, index, reader) {
         $("input[type='submit']").prop("disabled", "");
     });
+
+    $('.js-remove-brochure').on('click', function(e) {
+        var $el = $('#product_brochure');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
+    });        
 });
 
 jQuery(function () {
