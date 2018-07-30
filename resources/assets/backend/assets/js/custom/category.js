@@ -34,7 +34,7 @@ var Category = function() {
     };
     var formEvents = function() {
         $(document).on('change', '#category_image', function(e) {
-            console.log('this.files', this.files);
+            // console.log('this.files', this.files);
             if (this.files && this.files[0]) {
                 $.each(this.files, function() {
                     var reader = new FileReader();
