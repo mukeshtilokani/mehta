@@ -55,7 +55,7 @@
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<a href="" class="btn btn-primary w-100">Download brochure</a>
+						<a href="{{ route('download.product.brochure', ['id' => $productDetail->id]) }}" class="btn btn-primary w-100">Download brochure</a>
 					</div>
 				</div>
 			</div>

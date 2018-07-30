@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Response;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -23,4 +24,28 @@ class ProductsController extends Controller
         
         return view('pages.frontend.product_detail', compact('productDetail', 'otherProducts'));
     }
+
+    /**
+     * Download the product brochure
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function downloadBrochure($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $brochureUrl = '';
+        if($product->brochure_url) {
+            $brochureUrl = base_path($product->brochure_url);
+        } else {
+            $brochureUrl = storage_path() . '/app/public/brochures/default-brochure.pdf';
+        }
+
+        $headers = array(
+          'Content-Type: application/pdf',
+        );
+
+        return Response::download($brochureUrl, 'brochure.pdf', $headers);
+    }    
 }
