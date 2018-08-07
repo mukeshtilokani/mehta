@@ -169,7 +169,7 @@ $(document).ready(function() {
         var $el = $('#product_brochure');
         $el.wrap('<form>').closest('form').get(0).reset();
         $el.unwrap();
-    });        
+    });
 });
 
 jQuery(function () {

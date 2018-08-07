@@ -164,4 +164,13 @@ class CategoriesController extends Controller
             'image_name' => $filename,
         ];
     }
+
+    public function changeDisplayOnHomePageStatus(Request $request)
+    {
+        $category = Category::find($request->categoryId);
+        $category->is_show_on_home_page = $request->isChecked;
+        $category->save();
+
+        return $category;
+    }
 }
