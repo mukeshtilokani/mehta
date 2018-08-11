@@ -4,7 +4,7 @@
         {!! Form::text('name', $from=="edit" ? $category->name : null,['class' => 'form-control']) !!}
     </div>
 </div>
-
+<input type="hidden" id="_token" value="{{ csrf_token() }}">
 <div class="form-group row">
     <label class="col-md-3" for="example-text-input">Category</label>
     <div class="col-md-9">

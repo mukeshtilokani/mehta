@@ -70,13 +70,15 @@ var Product = function() {
                 index = highestIndex + 1;
             }
             var productImageHtmlFormat = "";
-            productImageHtmlFormat = ' <li class="panel ui-state-default liSort js-product-image-li" data-index="{index}" data-id="">';
-            productImageHtmlFormat += '<div class="form-group sorter panel-body img-block">';
+            productImageHtmlFormat = ' <li class="panel ui-state-default liSort js-product-image-li row" data-index="{index}" data-id="">';
+            productImageHtmlFormat += '<div class="col-12">';
+            productImageHtmlFormat += '<div class="form-group sorter panel-body img-block row align-items-center">';
             productImageHtmlFormat += '<div class="col-sm-3"><img src="' + Site.no_image_url + '" width="150" class="center-block js-preview-image" data-index="{index}" /></div>';
             productImageHtmlFormat += '<div class="col-sm-9">';
             productImageHtmlFormat += '<div class="row">';
-            productImageHtmlFormat += '<div class="col-sm-9"><div class="input-group js-file-input-group"><label class="input-group-btn"><span class="btn green">Browse&hellip; <input type="file" style="display: none;" class="form-control js-product-file" type="file" name="product_image[{index}]" multiple></span></label><input type="text" value="" class="form-control js-file-name" readonly></div></div>';
-            productImageHtmlFormat += '<div class="col-sm-3"><a class="js-remove-product-image btn green" data-index="{index}" href="javascript:void(0)">Remove</a></div>';
+            productImageHtmlFormat += '<div class="col-sm-9"><div class="custom-file js-file-input-group"><input type="file" class="custom-file-input js-product-file" id="category_image" name="product_image[{ $loop->index }]" data-toggle="custom-file-input" value="{ $media->file_name }" readonly><label class="custom-file-label" for="example-file-input-custom">Browse</label></div></div>';
+            productImageHtmlFormat += '<div class="col-sm-3"><a class="js-remove-product-image btn btn-danger" data-index="{ index }" href="javascript:void(0)">Remove</a></div>';
+            productImageHtmlFormat += '</div>';
             productImageHtmlFormat += '</div>';
             productImageHtmlFormat += '</div>';
             productImageHtmlFormat += '</div>';
@@ -130,7 +132,7 @@ var Product = function() {
                     reader.readAsDataURL(this);
                 });
             }
-        });
+        });     
 
         if($('.js-frm-create-product').length > 0) {
             $('.js-add-product-image').trigger('click');
@@ -163,6 +165,12 @@ $(document).ready(function() {
 
     $("input[type='file']").on('fileloaded', function(event, file, previewId, index, reader) {
         $("input[type='submit']").prop("disabled", "");
+    });
+
+    $('.js-remove-brochure').on('click', function(e) {
+        var $el = $('#product_brochure');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
     });
 });
 
