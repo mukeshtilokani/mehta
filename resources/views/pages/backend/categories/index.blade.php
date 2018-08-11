@@ -45,7 +45,7 @@
 	                        	<a href="categories/{{ $category->id }}/edit" class="btn btn-icon-only green">
 	                                <i class="fa fa-edit"></i>
 	                            </a>
-	                            <a href="#" data-confirm-msg="Are you sure you would like to delete this record?" data-delete-url="admin/categories/{{ $category->id }}" class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+	                            <a href="#" data-confirm-msg="Are you sure you would like to delete this record?" data-delete-url="/admin/categories/{{ $category->id }}" class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
 	                        </td>
 						</tr>
 						@endforeach
