@@ -13,9 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('pages.frontend.home');
-});
+Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
 Route::get('about', function () {
     return view('pages.frontend.about');
