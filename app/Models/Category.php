@@ -17,4 +17,8 @@ class Category extends Model
     {
         return $this->belongsTo('App\Models\Category', 'parent_id');
     }
+
+    protected $casts = [
+        'is_show_on_home_page' => 'boolean'
+    ];    
 }
