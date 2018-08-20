@@ -13,9 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('pages.frontend.home');
-});
+Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
 Route::get('about', function () {
     return view('pages.frontend.about');
@@ -60,6 +58,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
     Route::delete('/categories/{market}', 'CategoriesController@destroy')->name('admin.categories.destroy');
     Route::put('/categories/{market}', 'CategoriesController@update')->name('admin.categories.update');
     Route::get('/categories/{market}/edit', 'CategoriesController@edit')->name('admin.categories.edit');
+    Route::post('/categories/changeDisplayOnHomePageStatus', 'CategoriesController@changeDisplayOnHomePageStatus')->name('admin.categories.change.display.status');
 
     // Gallery routes
     Route::get('/galleries', 'GalleriesController@index')->name('admin.galleries.index');

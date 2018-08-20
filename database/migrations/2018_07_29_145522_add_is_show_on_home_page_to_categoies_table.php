@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddBrochureUrlFieldToProductsTable extends Migration
+class AddIsShowOnHomePageToCategoiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddBrochureUrlFieldToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('brochure_url')->after('description')->nullable();
+        Schema::table('categories', function (Blueprint $table) {
+            $table->boolean('is_show_on_home_page')->after('image_file_name')->default(false)->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddBrochureUrlFieldToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('brochure_url');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('is_show_on_home_page');
         });
     }
 }

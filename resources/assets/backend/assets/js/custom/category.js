@@ -34,7 +34,6 @@ var Category = function() {
     };
     var formEvents = function() {
         $(document).on('change', '#category_image', function(e) {
-            // console.log('this.files', this.files);
             if (this.files && this.files[0]) {
                 $.each(this.files, function() {
                     var reader = new FileReader();
@@ -58,6 +57,27 @@ var Category = function() {
 
 $(document).ready(function() {
     Category.init();
+    $('.js-show-on-home-page').change(function() {
+        var isChecked = $(this).is(":checked") ? 1 : 0;
+        var categoryId = $(this).data('category');
+        var limit = 4;
+        if($(".js-show-on-home-page:checked").length > limit) {
+            this.checked = false;
+            $('#category_selection_alert_modal').modal('show');
+            return;
+        }
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/admin/categories/changeDisplayOnHomePageStatus',
+            type: 'POST',
+            data: {isChecked: isChecked, categoryId: categoryId},
+            success: function(response){
+                console.log('response', response);
+            }
+        });
+    });
 });
 
 jQuery(function () {
