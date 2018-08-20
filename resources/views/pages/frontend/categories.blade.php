@@ -34,7 +34,7 @@
 			@foreach($categories as $category)
 				<div class="col-md-6 col-lg-4">
 					<figure class="effect-lily">
-						<img src="{{ $category->image }}" alt=""/>
+						<img src="{{ asset('storage/categories/thumbnail/'. $category->image_file_name) }}" alt=""/>
 						<figcaption>
 							<div>
 								<h2>{{ $category->name }}</h2>

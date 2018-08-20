@@ -58,18 +58,11 @@
 		<div class="row align-items-center justify-content-between">
 			<div class="col-lg-6">
 				<div class="row">
+					@foreach($categories as $category)
 					<div class="col-6 mb-gt">
-						<img class="img-fluid" src="{{ asset('https://picsum.photos/540/540?image=101') }}" alt="">
+						<img class="img-fluid" src="{{ asset('storage/categories/thumbnail/'. $category->image_file_name) }}" alt="">
 					</div>
-					<div class="col-6 mb-gt">
-						<img class="img-fluid" src="{{ asset('https://picsum.photos/540/540?image=201') }}" alt="">
-					</div>
-					<div class="col-6 mb-gt">
-						<img class="img-fluid" src="{{ asset('https://picsum.photos/540/540?image=301') }}" alt="">
-					</div>
-					<div class="col-6 mb-gt">
-						<img class="img-fluid" src="{{ asset('https://picsum.photos/540/540?image=401') }}" alt="">
-					</div>
+					@endforeach
 				</div>
 			</div>
 			<div class="col-lg-5">
