@@ -106,13 +106,13 @@
 					<div class="col-md-6">
 						<small class="font-weight-bold">Email address</small>
 						<p class="mb-0">
-							<a href="mailto:example@email.com">example@email.com</a>
+							<a href="mailto:sunil_mehtaply@yahoo.co.in">sunil_mehtaply@yahoo.co.in</a>
 						</p>
 					</div>
 					<div class="col-md-6">
 						<small class="font-weight-bold">Phone number</small>
 						<p>
-							<a href="tel:+911234567890">+911234567890</a>
+							<a href="tel:+912836237050">+91 2836 237050</a>
 						</p>
 					</div>
 				</div>
