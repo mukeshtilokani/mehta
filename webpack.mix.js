@@ -95,8 +95,8 @@ mix.scripts([
 
 mix.copy('resources/assets/backend/assets/js/custom/products.js', 'public/backend/assets/js/custom/products.js');
 
-mix.copyDirectory('resources/assets/backend/assets/fonts', 'public/backend/assets/fonts');
-mix.copyDirectory('resources/assets/backend/assets/js/core', 'public/backend/assets/js/core');
-mix.copyDirectory('resources/assets/backend/assets/js/pages', 'public/backend/assets/js/pages');
-mix.copyDirectory('resources/assets/backend/assets/js/plugins', 'public/backend/assets/js/plugins');
-mix.copyDirectory('resources/assets/backend/assets/media', 'public/backend/assets/media');
+// mix.copyDirectory('resources/assets/backend/assets/fonts', 'public/backend/assets/fonts');
+// mix.copyDirectory('resources/assets/backend/assets/js/core', 'public/backend/assets/js/core');
+// mix.copyDirectory('resources/assets/backend/assets/js/pages', 'public/backend/assets/js/pages');
+// mix.copyDirectory('resources/assets/backend/assets/js/plugins', 'public/backend/assets/js/plugins');
+// mix.copyDirectory('resources/assets/backend/assets/media', 'public/backend/assets/media');
