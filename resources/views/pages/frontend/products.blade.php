@@ -104,7 +104,7 @@
 {{-- Products listing --}}
 
 {{-- testimonial --}}
-@include('includes.frontend.testimonial')
+{{-- @include('includes.frontend.testimonial') --}}
 {{-- End of testimonial --}}
 
 @endsection

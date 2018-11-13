@@ -11,7 +11,7 @@
     @yield('plugins-style')
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
     {{-- <script>
         var cb = function() {
         var l = document.createElement('link'); l.rel = 'stylesheet';

@@ -35,7 +35,7 @@
 			@foreach($categoryProducts as $product)
 				<div class="col-md-6 col-lg-4">
 					<figure class="effect-lily">
-						<img src="{{ $product->getMedia('product')->first()->getUrl() }}" alt=""/>
+						<img src="{{ $product->getMedia('product')->first()->getUrl('thumb') }}" alt=""/>
 						<figcaption>
 							<div>
 								<h2>{{ $product->name }}</h2>
@@ -51,7 +51,7 @@
 {{-- Products listing --}}
 
 {{-- testimonial --}}
-@include('includes.frontend.testimonial')
+{{-- @include('includes.frontend.testimonial') --}}
 {{-- End of testimonial --}}
 
 @endsection

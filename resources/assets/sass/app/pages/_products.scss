@@ -67,14 +67,16 @@ $color_trout_80_approx: rgba(72, 76, 97, 0.8);
     h2 {
         word-spacing: -0.15em;
         font-weight: 700;
-        margin: 0; // span {
+        margin: 0;
+        font-size: $h4-font-size;
+        // span {
         //     font-weight: 800;
         // }
     }
     p {
         margin: 0;
         letter-spacing: 1px;
-        font-size: 68.5%;
+        font-size: 12px;
     }
 }
 

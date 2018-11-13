@@ -1,6 +1,91 @@
-/*!
- * business - v1.0.0
- * @author undefined - http://pixelperfection.in
- * Copyright (c) 2018
- */
-var Category={init:function(){$(".js-frm-create-category, .js-frm-edit-category").validate({ignore:[],debug:!1,messages:{},rules:{name:{required:!0},category_image:{required:function(){return 0==$(".js-frm-edit-category").length}},description:{required:!0}},errorPlacement:function(e,t){"category_image"==t.prop("id")?t.closest(".js-image-div").append(e):t.parent().append(e)},submitHandler:function(e){e.submit()}}),$(document).on("change","#category_image",function(e){this.files&&this.files[0]&&$.each(this.files,function(){var e=new FileReader;e.onload=function(e){$(".js-preview-image").prop("src",e.target.result)},e.readAsDataURL(this)})})}};$(document).ready(function(){Category.init(),$(".js-show-on-home-page").change(function(){var e=$(this).is(":checked")?1:0,t=$(this).data("category");if($(".js-show-on-home-page:checked").length>4)return this.checked=!1,void $("#category_selection_alert_modal").modal("show");$.ajax({headers:{"X-CSRF-TOKEN":$('meta[name="csrf-token"]').attr("content")},url:"/admin/categories/changeDisplayOnHomePageStatus",type:"POST",data:{isChecked:e,categoryId:t},success:function(e){console.log("response",e)}})})}),jQuery(function(){jQuery(".js-dataTable-full-pagination").dataTable({pagingType:"full_numbers",columnDefs:[{orderable:!1,targets:[2]}],pageLength:8,lengthMenu:[[5,8,15,20],[5,8,15,20]],autoWidth:!1})});
+var Category = function() {
+    var handleValidation = function() {
+        $('.js-frm-create-category, .js-frm-edit-category').validate({
+            ignore: [],
+            debug: false,
+            messages: {},
+            rules: {
+                name: {
+                    required: true
+                },
+                category_image: {
+                    required: function() {
+                        return $('.js-frm-edit-category').length == 0 ? true : false;
+                    }
+                },
+                description: {
+                    required: true
+                }
+            },
+            errorPlacement: function(error, element) { // render error placement for each input type
+                if (element.prop('id') == 'category_image') {
+                    element.closest('.js-image-div').append(error);
+                } else {
+                    element.parent().append(error);
+                }
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+    };
+    var formInitialization = function() {
+
+    };
+    var formEvents = function() {
+        $(document).on('change', '#category_image', function(e) {
+            if (this.files && this.files[0]) {
+                $.each(this.files, function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $(".js-preview-image").prop("src", e.target.result);
+                    }
+                    reader.readAsDataURL(this);
+                });
+            }
+        });
+    };
+
+    return {
+        init: function() {
+            handleValidation();
+            formInitialization();
+            formEvents();
+        }
+    }
+}();
+
+$(document).ready(function() {
+    Category.init();
+    $('.js-show-on-home-page').change(function() {
+        var isChecked = $(this).is(":checked") ? 1 : 0;
+        var categoryId = $(this).data('category');
+        var limit = 4;
+        if($(".js-show-on-home-page:checked").length > limit) {
+            this.checked = false;
+            $('#category_selection_alert_modal').modal('show');
+            return;
+        }
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/admin/categories/changeDisplayOnHomePageStatus',
+            type: 'POST',
+            data: {isChecked: isChecked, categoryId: categoryId},
+            success: function(response){
+                console.log('response', response);
+            }
+        });
+    });
+});
+
+jQuery(function () {
+    jQuery('.js-dataTable-full-pagination').dataTable({
+        pagingType: "full_numbers",
+        columnDefs: [ { orderable: false, targets: [ 2 ] } ],
+        pageLength: 8,
+        lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
+        autoWidth: false
+    });
+});
