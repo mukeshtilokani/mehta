@@ -26,13 +26,13 @@
 				</h5>
 				<ul class="list-unstyled">
 					<li>
-						Email: <a href="mailto:example@email.com">example@email.com</a>
+						Email: <a href="mailto:sunil_mehtaply@yahoo.co.in">sunil_mehtaply@yahoo.co.in</a>
 					</li>
 					<li>
-						Phone: <a href="tel:+911234567890">+911234567890</a>
+						Customer care: <a href="tel:+918980024699">+91 8980 024699</a>
 					</li>
 					<li>
-						Land line: <a href="tel:+100000000002">+1 (0) 000 0000 002</a>
+						Phone: <a href="tel:+912836237050">+91 2836 237050</a>
 					</li>
 				</ul>
 			</div>
@@ -70,12 +70,6 @@
 					<li class="list-inline-item">
 						<a href=""><i class="fab fa-facebook"></i></a>
 					</li>
-					<li class="list-inline-item">
-						<a href=""><i class="fab fa-twitter"></i></a>
-					</li>
-					<li class="list-inline-item">
-						<a href=""><i class="fab fa-linkedin"></i></a>
-					</li>
 				</ul>
 			</div>
 		</div>
@@ -91,5 +85,5 @@
     </script> --}}
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script async src="{{ asset('js/min/main.min.js') }}"></script> <!-- Resource jQuery -->
+    <script async src="{{ asset(mix('js/min/main.min.js')) }}"></script> <!-- Resource jQuery -->
     @yield('plugins-scripts')

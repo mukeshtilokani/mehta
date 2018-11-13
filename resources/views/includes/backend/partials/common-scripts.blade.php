@@ -5,10 +5,10 @@
 <script src="{{ asset('backend/assets/js/core/js.cookie.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/codebase.js') }}"></script> --}}
 
-<script src="{{ asset('backend/assets/js/business.min.js') }}"></script>
+<script src="{{ asset(mix('backend/assets/js/business.min.js')) }}"></script>
 <script src="{{ asset('backend/assets/js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 
 <script src="{{ asset('backend/assets/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/custom/common.js') }}"></script>
+<script src="{{ asset(mix('backend/assets/js/custom/common.js')) }}"></script>
