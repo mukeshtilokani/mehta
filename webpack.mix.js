@@ -8,7 +8,8 @@ if (!mix.inProduction()) {
 }
 
 if (mix.inProduction()) {
-    mix.version();
+    mix.version()
+        .purgeCss();
 }
 
 /*
@@ -35,8 +36,22 @@ mix.sass('resources/assets/sass/app.scss', 'public/css/app.css')
                 cascade: false
             })
         ]
-    })
-// .purgeCss();
+    });
+
+mix.sass('resources/assets/backend/assets/_scss/main.scss', 'public/backend/assets/css/business.min.css')
+    .options({
+        processCssUrls: false,
+        postCss: [
+            require('autoprefixer')({
+                browsers: [
+                    "> 1%",
+                    "last 40 versions",
+                    "IE 10"
+                ],
+                cascade: false
+            })
+        ]
+    });
 
 mix.scripts([
     'resources/assets/js/src/main.js'
@@ -69,6 +84,16 @@ mix.scripts([
 mix.scripts([
     'resources/assets/backend/assets/js/custom/common.js'
 ], 'public/backend/assets/js/custom/common.js');
+
+mix.scripts([
+    'resources/assets/backend/assets/js/custom/category.js'
+], 'public/backend/assets/js/custom/category.js');
+
+mix.scripts([
+    'resources/assets/backend/assets/js/custom/gallery.js'
+], 'public/backend/assets/js/custom/gallery.js');
+
+mix.copy('resources/assets/backend/assets/js/custom/products.js', 'public/backend/assets/js/custom/products.js');
 
 mix.copyDirectory('resources/assets/backend/assets/fonts', 'public/backend/assets/fonts');
 mix.copyDirectory('resources/assets/backend/assets/js/core', 'public/backend/assets/js/core');
