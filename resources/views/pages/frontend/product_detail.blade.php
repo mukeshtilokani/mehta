@@ -72,11 +72,11 @@
 				<div class="col-md-6 col-lg-4">
 					<a href="{{ route('frontend.product.detail', ['id' => $product->id]) }}">
 						<figure class="effect-lily">
-							<img src="{{ $product->getMedia('product')->first()->getUrl() }}" alt=""/>
+							<img src="{{ $product->getMedia('product')->first()->getUrl('thumb') }}" alt=""/>
 							<figcaption>
 								<div>
 									<h2>{{ $product->name }}</h2>
-									<p>{{ $product->description }}</p>
+									{{-- <p>{{ $product->description }}</p> --}}
 								</div>
 							</figcaption>			
 						</figure>

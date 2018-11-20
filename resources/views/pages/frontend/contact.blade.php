@@ -81,7 +81,7 @@
 					<div class="form-group">
 						<div class="custom-control custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="customCheck1">
-							<label class="custom-control-label" for="customCheck1">Agree to <a href="#" data-toggle="modal" data-target="#terms-conditions">terms and conditions</a></label>
+							<label class="custom-control-label" for="customCheck1">Agree to <a href="/terms" data-toggle="modal" data-target="#terms-conditions">terms and conditions</a></label>
 						</div>
 					</div>
 					<button class="btn btn-primary js-contact-us-submit-btn" type="submit">Submit form</button>
@@ -106,13 +106,13 @@
 					<div class="col-md-6">
 						<small class="font-weight-bold">Email address</small>
 						<p class="mb-0">
-							<a href="mailto:example@email.com">example@email.com</a>
+							<a href="mailto:sunil_mehtaply@yahoo.co.in">sunil_mehtaply@yahoo.co.in</a>
 						</p>
 					</div>
 					<div class="col-md-6">
 						<small class="font-weight-bold">Phone number</small>
 						<p>
-							<a href="tel:+911234567890">+911234567890</a>
+							<a href="tel:+912836237050">+91 2836 237050</a>
 						</p>
 					</div>
 				</div>
@@ -160,5 +160,5 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="{{ asset('js/min/contact_us.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset(mix('js/min/contact_us.min.js')) }}"></script>
 @endsection
