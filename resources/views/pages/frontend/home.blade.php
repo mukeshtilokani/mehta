@@ -75,7 +75,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6">
-						<a href="" class="btn btn-primary w-100">See more</a>
+						<a href="{{ route('frontend.categories') }}" class="btn btn-primary w-100">See more</a>
 					</div>
 				</div>
 			</div>
