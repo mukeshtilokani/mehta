@@ -71,7 +71,7 @@
     <div class="col-md-6">
         <div class="custom-file">
             <input type="file" class="custom-file-input js-custom-file-input-enabled" id="product_brochure" name="product_brochure" data-toggle="custom-file-input">
-            <label class="custom-file-label" for="example-file-input-custom">Choose file</label>
+            <label class="custom-file-label" for="product_brochure">Choose file</label>
         </div>
     </div>
     <div class="col-md-3">

@@ -43,6 +43,10 @@ Route::post('submit-inquiry', 'Frontend\ContactUsController@sendContactUsMail')-
 
 Auth::routes();
 
+Route::get('admin', function () {
+    return redirect()->route('admin.dashboard');
+});
+
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
    
     Route::get('dashboard', 'HomeController@dashboard')->name('admin.dashboard');
