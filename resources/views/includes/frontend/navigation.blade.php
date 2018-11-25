@@ -20,10 +20,17 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" href="javascript:void(0)" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{{ route('frontend.categories') }}">All categories</a>
+						@php($seeAllCategories=false)
 						@foreach($categories as $category)
+							@if($loop->index == 4)
+								@php($seeAllCategories=true)
+								@break
+							@endif
 							<a class="dropdown-item" href="{{ route('frontend.category.detail', ['id' => $category->id]) }}">{{ $category->name }}</a>
 						@endforeach
+						@if($seeAllCategories===true)
+							<a class="dropdown-item" href="{{ route('frontend.categories') }}">See more categories..</a>
+						@endif
 					</div>
 				</li>
 				<li>

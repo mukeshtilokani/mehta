@@ -30,7 +30,7 @@
 			@foreach($galleries as $gallery)
 				<div class="col-4 col-md-3 mb-gt">
 					<a href="{{ $gallery->image }}" data-toggle="lightbox" data-gallery="product-gallery">
-						<img src="{{ $gallery->image }}" class="img-fluid">
+						<img src="{{ asset('storage/galleries/thumbnail/'. $gallery->image_file_name) }}" class="img-fluid">
 					</a>
 				</div>
 			@endforeach

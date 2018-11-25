@@ -70,14 +70,14 @@ var Product = function() {
                 index = highestIndex + 1;
             }
             var productImageHtmlFormat = "";
-            productImageHtmlFormat = ' <li class="panel ui-state-default liSort js-product-image-li row" data-index="{index}" data-id="">';
+            productImageHtmlFormat = ' <li class="panel ui-state-default liSort js-product-image-li row" data-index="' + index+ '" data-id="">';
             productImageHtmlFormat += '<div class="col-12">';
             productImageHtmlFormat += '<div class="form-group sorter panel-body img-block row align-items-center">';
-            productImageHtmlFormat += '<div class="col-sm-3"><img src="' + Site.no_image_url + '" width="150" class="center-block js-preview-image" data-index="{index}" /></div>';
+            productImageHtmlFormat += '<div class="col-sm-3"><img src="' + Site.no_image_url + '" width="150" class="center-block js-preview-image" data-index="' + index+ '" /></div>';
             productImageHtmlFormat += '<div class="col-sm-9">';
             productImageHtmlFormat += '<div class="row">';
-            productImageHtmlFormat += '<div class="col-sm-9"><div class="custom-file js-file-input-group"><input type="file" class="custom-file-input js-product-file" id="category_image" name="product_image[{ $loop->index }]" data-toggle="custom-file-input" value="{ $media->file_name }" readonly><label class="custom-file-label" for="example-file-input-custom">Browse</label></div></div>';
-            productImageHtmlFormat += '<div class="col-sm-3"><a class="js-remove-product-image btn btn-danger" data-index="{ index }" href="javascript:void(0)">Remove</a></div>';
+            productImageHtmlFormat += '<div class="col-sm-9"><div class="custom-file js-file-input-group"><input type="file" class="custom-file-input js-product-file" id="category_image" name="product_image[' + index+ ']" data-toggle="custom-file-input" value="{ $media->file_name }" readonly><label class="custom-file-label" for="example-file-input-custom">Browse</label></div></div>';
+            productImageHtmlFormat += '<div class="col-sm-3"><a class="js-remove-product-image btn btn-danger" data-index="' + index+ '" href="javascript:void(0)">Remove</a></div>';
             productImageHtmlFormat += '</div>';
             productImageHtmlFormat += '</div>';
             productImageHtmlFormat += '</div>';
@@ -102,19 +102,19 @@ var Product = function() {
         });
 
         $(document).on('click', '.js-remove-product-image', function() {
-            if ($('.js-frm-edit-product').length) {
+            // if ($('.js-frm-edit-product').length) {
                 var imageObject = $(this).closest('.js-product-image-li');
                 var imageIndex = imageObject.data("index");
                 if (imageObject.data("id") != "") {
                     var removedImages = $("#removed_images").val() + ($("#removed_images").val() == "" ? imageIndex : "," + imageIndex);
                     $("#removed_images").val(removedImages);
                 } else {
-                    var newlyAddedImages = $("#newly_added_images").val().split(",");
+                    var newlyAddedImages = $("#newly_added_images").val() ? $("#newly_added_images").val().split(",") : [];
                     var removedImageIndex = newlyAddedImages.indexOf(imageIndex);
                     newlyAddedImages.splice(removedImageIndex, 1);
                     $("#newly_added_images").val(newlyAddedImages.join());
                 }
-            }
+            // }
             $('.js-product-image-main-div .js-product-image-li').filter('[data-index="' + $(this).data("index") + '"]').remove();
             checkRemoveImageButton();
         });
@@ -152,6 +152,7 @@ var Product = function() {
             handleValidation();
             formInitialization();
             formEvents();
+            checkRemoveImageButton();
         }
     }
 }();

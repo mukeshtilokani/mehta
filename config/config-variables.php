@@ -1,7 +1,7 @@
 <?php
 return [
     'email_recipients' => [
-        'contact_us' => ['shethsunny@outlook.com']
+        'contact_us' => ['mukeshtilokani@gmail.com']
     ],
     'imagePath' => [
     	'category_image' =>	'/categories/',
